@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ewe Society - St. Stephen Parish, Darkuman</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles for the society page */
+        .society-section {
+            background-color: #fff;
+            padding: 3rem 0;
+        }
+        
+        .society-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .society-header h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 1rem auto 0;
+        }
+        
+        .society-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .society-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .society-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .society-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .society-details p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .society-info {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .society-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .society-info ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .society-info li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .society-info li:last-child {
+            border-bottom: none;
+        }
+        
+        .society-info li i {
+            color: var(--primary-color);
+        }
+        
+        .history-section {
+            margin-bottom: 3rem;
+        }
+        
+        .history-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .history-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .join-info {
+            background-color: rgba(196, 30, 58, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 3rem 0;
+            border-radius: 4px;
+        }
+        
+        .join-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .join-info h3 i {
+            color: var(--primary-color);
+        }
+        
+        .join-info .btn {
+            margin-top: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            color: var(--light-text);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .society-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-church"></i>
+                <h1>St. Stephen Parish</h1>
+            </div>
+            <p class="tagline">Faith, Community, Service</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About Us</a></li>
+                <li><a href="../mass-schedule.html">Mass Schedule</a></li>
+                <li><a href="../ministries.html">Parish Groups</a></li>
+                <li><a href="../gallery.html">Gallery</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/church-hero.jpg') no-repeat center center/cover; padding: 6rem 0;">
+        <div class="hero-content">
+            <h2>Ewe Society</h2>
+            <p>Uniting Ewe-speaking parishioners since 1985</p>
+        </div>
+    </section>
+
+    <section class="society-section">
+        <div class="container">
+            <div class="society-header">
+                <h2>About Ewe Society</h2>
+                <p>Learn about our history, mission, and activities</p>
+            </div>
+
+            <div class="society-content">
+                <div class="society-image">
+                    <div style="background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../images/Backgroud.jpg') no-repeat center center/cover; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                        <i class="fas fa-users" style="font-size: 3rem; color: var(--primary-color);"></i>
+                    </div>
+                </div>
+                <div class="society-details">
+                    <h3>Who We Are</h3>
+                    <p>The Ewe Society is a cultural and spiritual group that celebrates Ewe traditions while fostering Catholic faith among Ewe-speaking parishioners at St. Stephen Parish, Darkuman.</p>
+                    
+                    <div class="society-info">
+                        <h3><i class="fas fa-info-circle"></i> Society Information</h3>
+                        <ul>
+                            <li><i class="fas fa-calendar-alt"></i> <strong>Founded:</strong> 1985</li>
+                            <li><i class="fas fa-user"></i> <strong>First President:</strong> Mr. Kuleke</li>
+                            <li><i class="fas fa-user-tie"></i> <strong>Current President:</strong> Mr. Noel Abuobisah</li>
+                            <li><i class="fas fa-clock"></i> <strong>Meeting Schedule:</strong> Monthly</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Our Mission</h3>
+                    <p>The main objective of the formation of the society was to unite the Ewes within the community to promote the welfare of members and support the church.</p>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h3><i class="fas fa-history"></i> Our History</h3>
+                <p>The Ewe Society was formed in the year 1985. The first President was Mr. Kuleke. The main objective of the formation of the society was to unite the Ewes within the community to promote the welfare of members and support the church.</p>
+                
+                <h3><i class="fas fa-music"></i> St. Gabriel Singing Group</h3>
+                <p>The Ewe Society formed the St. Gabriel Singing Group which has featured prominently during the celebration of mass and other landmark events such as Musical Festival, Archbishop's Pastoral visits.</p>
+                
+                <p>The St. Gabriel Singing Group provides beautiful music, enriching the liturgical celebrations and preserving the cultural heritage of the Ewe community within the parish.</p>
+            </div>
+
+            <div class="join-info">
+                <h3><i class="fas fa-hands-helping"></i> Join Ewe Society</h3>
+                <p>We welcome all parishioners of Ewe origin who wish to celebrate their faith through their cultural heritage. To join or learn more about our activities, please contact the parish office or speak with any current member.</p>
+                <a href="../contact.html" class="btn">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-church"></i>
+                    <h2>St. Stephen Parish</h2>
+                    <p>Darkuman, Accra, Ghana</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../mass-schedule.html">Mass Schedule</a></li>
+                        <li><a href="../ministries.html">Parish Groups</a></li>
+                        <li><a href="../gallery.html">Gallery</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Darkuman, Accra, Ghana</p>
+                    <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+                    <p><i class="fas fa-envelope"></i> info@ststephendarkuman.org</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 St. Stephen Parish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

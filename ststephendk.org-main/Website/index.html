@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Stephen Parish - Darkuman, Accra</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-church"></i>
+                <h1>St. Stephen Parish</h1>
+            </div>
+            <p class="tagline">Faith, Community, Service</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="mass-schedule.html">Mass Schedule</a></li>
+                <li><a href="ministries.html">Parish Groups</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="bulletin.html">Bulletin</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="hero" id="hero-slideshow">
+        
+        <!-- Slideshow Navigation Controls -->
+        <div class="slideshow-controls">
+            <button class="slideshow-nav prev" onclick="prevImage()"><i class="fas fa-chevron-left"></i></button>
+            <button class="slideshow-nav next" onclick="nextImage()"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <!-- Slideshow Indicators -->
+        <div class="slideshow-indicators" id="slideshow-indicators">
+            <!-- Indicators will be added dynamically by JavaScript -->
+        </div>
+        
+        <script>
+            // Hero Slideshow Functionality
+            const heroSlideshow = document.getElementById('hero-slideshow');
+            const slideshowIndicators = document.getElementById('slideshow-indicators');
+            const images = [
+                'images/church-hero.jpg',
+                'images/Bg1.jpg',
+                'images/Bg2.jpg',
+                'images/Bg3.jpg',
+                'images/Bg4.jpg',
+                'images/Bg5.jpg'
+            ];
+            let currentImageIndex = 0;
+            
+            // Create indicators
+            function createIndicators() {
+                for (let i = 0; i < images.length; i++) {
+                    const indicator = document.createElement('div');
+                    indicator.classList.add('indicator');
+                    if (i === 0) indicator.classList.add('active');
+                    indicator.addEventListener('click', () => goToSlide(i));
+                    slideshowIndicators.appendChild(indicator);
+                }
+            }
+            
+            // Create indicators on page load
+            createIndicators();
+            
+            function updateIndicators() {
+                // Remove active class from all indicators
+                const indicators = slideshowIndicators.querySelectorAll('.indicator');
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.remove('active');
+                    if (index === currentImageIndex) {
+                        indicator.classList.add('active');
+                    }
+                });
+            }
+            
+            function goToSlide(index) {
+                clearInterval(slideshowInterval); // Stop the automatic slideshow
+                currentImageIndex = index;
+                changeBackgroundImage(false); // Show the selected slide without advancing the index
+                slideshowInterval = setInterval(changeBackgroundImage, 5000); // Restart the automatic slideshow
+            }
+            
+            function changeBackgroundImage(advanceIndex = true) {
+                // Add fade-out effect
+                heroSlideshow.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    // Change the background image without color overlay
+                    heroSlideshow.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+                    
+                    // Add fade-in effect
+                    heroSlideshow.style.opacity = '1';
+                    
+                    // Update indicators
+                    updateIndicators();
+                    
+                    // Update index for next image if needed
+                    if (advanceIndex) {
+                        currentImageIndex = (currentImageIndex + 1) % images.length;
+                    }
+                }, 500);
+            }
+            
+            // Functions to navigate through images
+            function nextImage() {
+                clearInterval(slideshowInterval); // Stop the automatic slideshow
+                changeBackgroundImage(true); // Show next image and advance index
+                slideshowInterval = setInterval(() => changeBackgroundImage(true), 5000); // Restart the automatic slideshow
+            }
+            
+            function prevImage() {
+                clearInterval(slideshowInterval); // Stop the automatic slideshow
+                
+                // Calculate the previous index (with wrap-around)
+                currentImageIndex = (currentImageIndex - 2 + images.length) % images.length;
+                
+                changeBackgroundImage(false); // Show previous image without advancing index
+                slideshowInterval = setInterval(() => changeBackgroundImage(true), 5000); // Restart the automatic slideshow
+            }
+            
+            // Set initial background
+            changeBackgroundImage(false); // Initialize without advancing index
+            
+            // Change background every 5 seconds
+            let slideshowInterval = setInterval(() => changeBackgroundImage(true), 5000);
+        </script>
+    </section>
+
+    <!-- Image Gallery Section with Horizontal Scroll -->
+    <section class="image-gallery-section">
+        <div class="container">
+            <h2>Parish Events</h2>
+            <div class="image-gallery-container">
+                <button class="gallery-nav prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="images/Holy Hour Adoration.png" alt="Holy Hour Adoration">
+                        <div class="image-caption">Holy Hour Adoration</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/Bible Study_August.png" alt="Bible Study August">
+                        <div class="image-caption">Bible Study - August</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/Youth Mass_August.png" alt="Youth Mass August">
+                        <div class="image-caption">Youth Mass - August</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/Thursday_August.png" alt="Thursday August">
+                        <div class="image-caption">Thursday - August</div>
+                    </div>
+                </div>
+                <button class="gallery-nav next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="announcements">
+        <div class="container">
+            <h2>Parish Announcements</h2>
+            <div class="announcement-cards">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>Today's Programme</h3>
+                    <p>6TH JULY, 2025 FOURTEENTH SUNDAY IN ORDINARY TIME (YEAR C)</p>
+                    <p>There will be One (1) Mass at 7:30 a.m.</p>
+                    <p>Bidding Prayers and offertory gifts: Christian Mothers Association (C.M.A)</p>
+                    <p>Second Offering: There will be Kofi and Ama Thanksgiving Offering</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-church"></i></div>
+                    <h3>Next Sunday</h3>
+                    <p>13TH JULY, 2025 FIFTEENTH SUNDAY IN ORDINARY TIME - YEAR C</p>
+                    <p>There will be Two (2) Masses:</p>
+                    <p>First Mass: 7:00 a.m. - Bidding Prayers and offertory gifts: St. John Int.</p>
+                    <p>Second Mass: 9:00 a.m. - Bidding Prayers and offertory gifts: C.C.R.</p>
+                    <p>Second Offering: Parish Activities</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Last Week's Collection</h3>
+                    <p>FIRST COLLECTION: GHC 3,015.40</p>
+                    <p>SECOND COLLECTION: GHC 1,808.50</p>
+                    <p>SUNDAY SCHOOL: GHC 180.60</p>
+                </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin: 2rem auto; max-width: 600px; text-align: center;">
+                <a href="bulletin.html" style="display: block; text-decoration: none; color: inherit;">
+                    <div style="background-color: #f9f9f9; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                        <i class="fas fa-church" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                        <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">View Full Parish Bulletin</h3>
+                        <p>Click here to access the complete weekly parish bulletin with all announcements, readings, and parish information.</p>
+                    </div>
+                </a>
+            </div>
+            
+
+        </div>
+    </section>
+
+    <section class="about-preview">
+        <div class="container">
+            <div class="about-content">
+                <h2>Our Parish</h2>
+                <p>St. Stephen Parish in Darkuman, Accra has been serving the spiritual needs of the community since its establishment. Our parish is dedicated to fostering a deep relationship with Christ through worship, education, and service.</p>
+                <p>We welcome all who seek to deepen their faith and join our community in prayer and service.</p>
+                <a href="about.html" class="btn">Read More</a>
+            </div>
+            <div class="about-image">
+                <img src="images/church.jpg" alt="St. Stephen Parish Church Building" onerror="this.src='https://via.placeholder.com/400x300?text=St.+Stephen+Parish'">
+            </div>
+        </div>
+    </section>
+
+    <section class="mass-times">
+        <div class="container">
+            <h2>Mass Schedule</h2>
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <h3>Sunday</h3>
+                    <p>7:00 AM - First Mass</p>
+                    <p>9:30 AM - Second Mass</p>
+                </div>
+                <div class="schedule-item">
+                    <h3>Weekdays</h3>
+                    <p>6:30 AM - Morning Mass (Mon-Fri)</p>
+                </div>
+                <div class="schedule-item">
+                    <h3>Saturday</h3>
+                    <p>6:30 AM - Morning Mass</p>
+                    <p>5:00 PM - Vigil Mass</p>
+                </div>
+                <div class="schedule-item">
+                    <h3>Confessions</h3>
+                    <p>Saturday: 4:00 PM - 4:45 PM</p>
+                    <p>Or by appointment</p>
+                </div>
+            </div>
+            <a href="mass-schedule.html" class="btn">View Full Schedule</a>
+        </div>
+    </section>
+
+    <section class="contact-preview">
+        <div class="container">
+            <h2>Visit Us</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>St. Stephen Parish<br>Darkuman, Accra<br>Ghana</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+233 XX XXX XXXX</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@ststephendarkuman.org</p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.8176711484!2d-0.25!3d5.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzYnMDAuMCJOIDDCsDE1JzAwLjAiVw!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-church"></i>
+                    <h2>St. Stephen Parish</h2>
+                    <p>Darkuman, Accra, Ghana</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="mass-schedule.html">Mass Schedule</a></li>
+                        <li><a href="ministries.html">Parish Groups</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="bulletin.html">Bulletin</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> P. O. Box DK 389, Darkuman - Accra, Ghana</p>
+                    <p><i class="fas fa-phone"></i> +233 506078423 / +233 242017920</p>
+                    <p><i class="fas fa-envelope"></i> ststephendk@gmail.com</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 St. Stephen Parish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

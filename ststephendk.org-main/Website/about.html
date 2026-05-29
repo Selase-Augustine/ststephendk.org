@@ -3,723 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - St. Stephen Parish, Darkuman</title>
+    <title>About Us - St. Stephen Catholic Church, Darkuman</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Additional styles for the about page */
-        .about-section {
-            background-color: #fff;
-            padding: 3rem 0;
-        }
-        
-        .about-section .container {
-            max-width: 900px;
-        }
-        
-        .about-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .about-header h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .mission-vision {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .mission, .vision {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--primary-color);
-        }
-        
-        .mission h3, .vision h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .mission h3 i, .vision h3 i {
-            color: var(--primary-color);
-        }
-        
-        .history-section {
-            margin-bottom: 3rem;
-        }
-        
-        .history-section h3 {
-            color: var(--primary-color);
-            margin: 1.5rem 0 1rem;
-        }
-        
-        .history-section p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .table-responsive {
-            overflow-x: auto;
-            margin-bottom: 1.5rem;
-        }
-        
-        .priest-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0 2rem;
-        }
-        
-        .priest-table th {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: left;
-            padding: 0.75rem 1rem;
-        }
-        
-        .priest-table td {
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .priest-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        
-        .priest-table tr:hover {
-            background-color: #f1f1f1;
-        }
-        
-        .team-section {
-            margin-bottom: 3rem;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .team-member {
-            text-align: center;
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-        
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1.5rem;
-            border: 4px solid var(--primary-color);
-        }
-        
-        .team-member h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .team-member p {
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-        
-        /* Styles for parish groups section */
-        .parish-groups-section,
-        .parish-office-section {
-            margin-bottom: 3rem;
-        }
-        
-        .groups-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .group-category {
-            background-color: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--primary-color);
-        }
-        
-        .group-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .group-category h3 i {
-            color: var(--primary-color);
-        }
-        
-        .group-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        
-        .group-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .group-list li:last-child {
-            border-bottom: none;
-        }
-        
-        /* Styles for parish office section */
-        .parish-office-section {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--primary-color);
-        }
-        
-        .parish-office-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .parish-office-section ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .parish-office-section li {
-            margin-bottom: 0.75rem;
-        }
-        
-        @media (max-width: 768px) {
-            .mission-vision {
-                grid-template-columns: 1fr;
-            }
-            
-            .priest-table {
-                font-size: 0.9rem;
-            }
-            
-            .groups-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <div class="logo">
-                <i class="fas fa-church"></i>
-                <h1>St. Stephen Parish</h1>
-            </div>
-            <p class="tagline">Faith, Community, Service</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About Us</a></li>
-                <li><a href="mass-schedule.html">Mass Schedule</a></li>
-                <li><a href="ministries.html">Parish Groups</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="bulletin.html">Bulletin</a></li>
-            </ul>
-        </nav>
-
-
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-    </header>
+    <div id="site-header"></div>
 
     <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/church-hero.jpg') no-repeat center center/cover; padding: 6rem 0;">
         <div class="hero-content">
             <h2>About Our Parish</h2>
-            <p>Learn about our history, mission, and the people who make our community special</p>
+            <p>Explore our history, clergy, leadership, and parish life in smaller and easier pages</p>
         </div>
     </section>
 
-    <section class="about-section">
+    <section class="content-section">
         <div class="container">
-            <div class="about-header">
-                <h2>Welcome to St. Stephen Parish</h2>
-                <p>A vibrant Catholic community in Darkuman, Accra, dedicated to serving God and our neighbors</p>
+            <div class="section-intro">
+                <h2>Welcome to St. Stephen Catholic Church</h2>
+                <p>St. Stephen Catholic Church in Darkuman, Accra is a vibrant Catholic community built on worship, service, and strong lay participation. The About area is now organized into smaller pages so visitors can find information quickly.</p>
             </div>
 
-            <div class="mission-vision">
-                <div class="mission">
-                    <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
-                    <p>St. Stephen Parish exists to glorify God by making disciples who know Christ, grow in Christ, and go for Christ. We are committed to worship, fellowship, discipleship, ministry, and evangelism.</p>
-                    <p>We strive to be a beacon of hope and faith in our community, serving the spiritual and physical needs of all people with love and compassion.</p>
-                </div>
-                <div class="vision">
-                    <h3><i class="fas fa-eye"></i> Our Vision</h3>
-                    <p>To be a thriving, Christ-centered community where all people can encounter the living God, experience transformative worship, and be equipped to serve others with the love of Christ.</p>
-                    <p>We envision a parish that is deeply rooted in Catholic tradition while being relevant and responsive to the needs of our contemporary society.</p>
-                </div>
-            </div>
+            <div class="purpose-section">
+                <div class="purpose-grid">
+                    <div class="purpose-left">
+                        <div class="purpose-kicker">OUR PURPOSE</div>
+                        <h2 class="purpose-title">Mission &amp; <span>Vision</span></h2>
 
-            <div class="history-section">
-                <h2>Our History</h2>
-                <h3>The Genesis</h3>
-                <p>St. Stephen Catholic Church is an offshoot of the Holy Family Parish, Mataheko. The idea to establish a Church in the Darkuman Community originated from a crusade launched in 1977 by the then Parish Priest of the Holy Family Parish, Rev. Fr. Paul Van Riel, an SVD, for the spread of the Catholic faith in the suburbs of the city of Accra. At that time the Holy Family Parish served as a central point where the faithful from the suburbs converged to worship.</p>
-                <p>This served as a driving force for the establishment of community-based churches in areas such as Darkuman, Kaneshie, Dansoman, Odorkor to afford easy access to worship, propagation of the Gospel and spread of the Catholic faith. A few parishioners resident at Darkuman responded positively to the call as it did happened in other communities mentioned above. Mr. Stephen Ocloo led the crusade to form the St. Stephen's Catholic Church in March, 1978.</p>
+                        <div class="purpose-card mission">
+                            <h3>Our Mission</h3>
+                            <p>We seek to glorify God through worship, formation, discipleship, and service while building a parish community that supports families, youth, and the wider neighborhood.</p>
+                        </div>
 
-                <h3>Naming of the Church</h3>
-                <p>It is worthy of note that the name "Stephen" was given to the Church in 1982, in honour of two of its prominent personalities in the person of Mr. Stephen Ocloo and Stephen Kwame Kersi. The pioneers included:</p>
-                <ul style="list-style-type: none; padding-left: 1rem; margin-bottom: 1.5rem;">
-                    <li>Mr. Stephen Ocloo – Leader</li>
-                    <li>Mr. Raphael Ocloo</li>
-                    <li>Mr. Alex Atitsu</li>
-                    <li>Mr. Anthony Nuvor (deceased)</li>
-                    <li>Mr. John Ampah</li>
-                    <li>Mad. Cecilia Ocloo</li>
-                    <li>Mad. Veronica Amuzu</li>
-                    <li>Mad. Juliana Amponsah</li>
-                    <li>Seven Children</li>
-                </ul>
-
-                <h3>Inauguration and Early Development</h3>
-                <p>The inaugural ceremony of the founding of the New Church took place at the residence of Mr. Stephen Ocloo, which also served as the meeting place for a period of three months. Thereafter, the Church relocated to "Brisco House" where they met and worshipped for a period of one year and then returned to the residence of Mr. Ocloo, and worshipped there for another year.</p>
-                <p>The sturdy membership growth demanded a more suitable place of worship and with the kind permission of the late Mr. Samuel Kwesi Newman, a staunch Catholic and proprietor of the then New Royal International School, the congregation was allocated one of the classrooms in 1980, and congregated and worshipped there till 1982. In the same year, the Church saw the need to acquire a permanent place of worship. Consequently, the late Mr. Stephen Kersi donated a piece of land for the intended purpose.</p>
-
-                <h3>Leadership History</h3>
-                 <h4>First Chairman - Mr. Stephen Ocloo (1978-1982)</h4>
-                 <p>Mr. Stephen Ocloo remained the leader of the Church from the day of its foundation until 1982 with an estimated membership strength of two hundred and fifty from the initial fourteen pioneers. The need for a permanent place of worship and pastoral support became imperative and in 1981 Rev. Fr. Charles Rosaline was posted as a visiting Priest from the Charles Lwanga Parish, Abeka to assist in the pastoral work of the Church.</p>
-                 <p>In 1982, the Church members constructed a small chapel on that piece of land for the celebration of Mass. Masses were celebrated in the small chapel until somewhere in 2000 when the congregation moved into a new chapel which was under construction.</p>
-
-                 <h4>Second Chairman - Mr. Samuel Kwesi Newman (1983-1987)</h4>
-                 <p>Mr. Samuel Kwesi Newman, the then proprietor of the New Royal International School, Darkuman, succeeded Mr. Stephen Ocloo as Chairman of the Church Pastoral Council. During his administration, a makeshift structure was erected on the land donated by Mr. Stephen Kersi. Notably, Mr. Newman provided the Church Choir with its first robes.</p>
-
-                 <h4>Third Chairman - Mr. Peter Akwetea (1987-1990)</h4>
-                 <p>Under Mr. Akwetea's leadership, the Church saw significant developments:</p>
-                 <ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem;">
-                     <li>Extended the existing Church structure, increasing seating capacity from 300 to 500</li>
-                     <li>Acquired additional adjoining land through Mr. Stephen Kersi's help</li>
-                     <li>Secured the property with a fence wall built through communal labor</li>
-                 </ul>
-                 <p>During this period, Rev. Fr. Anthony Balee, a representative of the Pontifical Missionary Services (P.M.S) in Ghana, succeeded Rev. Fr. Rosaline as the Priest-in-Charge (1982-1992).</p>
-
-                 <h4>Fourth Chairman - Mr. Matthew Kofi Koomson (1990-1995)</h4>
-                 <p>Mr. Koomson's administration, the longest and most eventful, laid a solid foundation for transforming the St. Stephen's community. His achievements included:</p>
-                 <ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem;">
-                     <li>Establishing various Church Pastoral Council Committees</li>
-                     <li>Renovating the existing Church building</li>
-                     <li>Preparing building plans for a new Church building, rectory, and school</li>
-                     <li>Installing drainage systems to prevent flooding</li>
-                     <li>Constructing sanitary facilities and a warehouse</li>
-                 </ul>
-
-                 <h4>Established Committees</h4>
-                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-                     <div>
-                         <h5>Main Committees</h5>
-                         <ul style="list-style-type: none; padding-left: 0;">
-                             <li>• Building - Mr. Aikins-Mensah</li>
-                             <li>• Education - Mr. Matthew Koomson</li>
-                             <li>• Liturgical - Mr. John Dickson Sarpeh</li>
-                             <li>• Catechetical - Mr. Stephen Kersi</li>
-                             <li>• Finance - Mr. Edward Taylor</li>
-                             <li>• Laity - Mr. Augustus Konadu Basoa</li>
-                             <li>• Parish Youth Council - Mr. John Osei Owusu</li>
-                         </ul>
-                     </div>
-                     <div>
-                         <h5>Special Committees</h5>
-                         <ul style="list-style-type: none; padding-left: 0;">
-                             <li>• Vocation - Mr. Anthony Kankam-Boadu</li>
-                             <li>• St. Paul's Seminary Fundraising - Mr. Stephen Kersi</li>
-                             <li>• Family Planning - Mrs. Grace Adubofour</li>
-                             <li>• Marriage & Family Counseling - Mr. Stephen Kersi</li>
-                             <li>• Social & Welfare - Mr. Matthew Koomson</li>
-                         </ul>
-                     </div>
-                 </div>
-                 <p>During this period, the celebration of the feast of St. Stephen, the Church's patron saint, was instituted to unite various church groups annually. The slogan "LOVE, PEACE AND UNITY" was adopted, expressed in Ga as "LoIo Son" with the response "Odo Nkoaa."</p>
-
-                  <h4>The New Church Building Project (1990-1995)</h4>
-                  <p>In 1990, the Church Pastoral Council set up a Building Committee to produce a block plan shortly after its inauguration. The committee co-opted Mr. Patrick Adjakpo, a parishioner and draftsman, to assist in the work of the committee.</p>
-                  
-                  <p>A fundraising initiative for the new Church building was launched, yielding ¢600,000.00 against the estimated total project cost of ¢60,000,000.00. Despite the modest initial response, the event successfully:</p>
-                  <ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem;">
-                      <li>Created awareness of the new administration's objectives</li>
-                      <li>Raised consciousness about the required sacrifices from the congregation</li>
-                      <li>Initiated the journey toward the cherished dream of a new Church building</li>
-                  </ul>
-
-                  <p>In 1992, through Rev. Msgr. Balee's efforts, the Pontifical Missionary Services (P.M.S) made a significant contribution of $20,000.00 toward the project. After completing the architectural and structural drawings and resolving various challenges, particularly regarding the building's siting, construction of the foundation began in 1995.</p>
-
-                  <p>The project's oversight transitioned to the next administration, led by the late Mr. Albert Kofi Adubofour, on February 28, 1995. Since then, successive administrations have maintained the continuity of this significant undertaking.</p>
-
-                  <h4>The Development of St. Stephen's Catholic School</h4>
-                  <p>The idea of establishing St. Stephen's Catholic School originated from the Sunday school operations that were in place when Mr. Adubofour's administration took office. Initially, the plan was to create a Day Care Centre as an extension of the Sunday school, primarily to benefit Catholic children by providing uninterrupted Catholic training and to address concerns about Charismatic teachers in the Sunday school.</p>
-                  
-                  <h5>Background Challenges</h5>
-                  <p>At that time, the Catholic Charismatic Renewal was affiliated with similar organizations based in Legon that opposed certain Catholic practices, particularly the use of the Rosary and statues in churches. There were concerning incidents, including:</p>
-                  <ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem;">
-                      <li>An ultimatum issued to the Holy Spirit Cathedral in May 1988 demanding the removal of statues and sacramentals</li>
-                      <li>Alleged incidents where Rosaries were collected from Catholic students and publicly burned during outreach programs at non-denominational educational institutions</li>
-                  </ul>
-                  
-                  <p>These concerns led to widespread discontent among Pastoral Councilors about the Sunday School's management by Charismatic teachers, fearing their ability to properly impart Catholic doctrines to children.</p>
-                  
-                  <h5>Formation of the Education Committee</h5>
-                  <p>The Education Committee was formed to address these concerns and held its first meeting on March 12, 1991, to establish objectives. The committee consisted of:</p>
-                  <ul style="list-style-type: none; padding-left: 1rem; margin-bottom: 1rem;">
-                      <li>• Mr. Matthew Kofi Koomson (deceased) - Chairman</li>
-                      <li>• Theresa Abbeyquaye (Mrs.) - Secretary/Treasurer</li>
-                      <li>• Cecilia Sakyiamah (Mrs.) (deceased) - Member</li>
-                      <li>• S.K. Newman (deceased) - Member</li>
-                      <li>• Anthony Kukubor (deceased) - Member</li>
-                      <li>• John Dickson Sarpeh - Member</li>
-                      <li>• Elizabeth Asiedua - Member</li>
-                  </ul>
-                  
-                  <h5>Objectives and Implementation</h5>
-                  <p>The committee set the following objectives:</p>
-                  <ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem;">
-                      <li>Establish a Day Care Centre for St. Stephen Catholic Church children and admit non-Catholics whose parents would abide by Catholic rules</li>
-                      <li>Assist kindergarten graduates in securing admissions to reputable Catholic Schools until the Church could absorb them into its own system</li>
-                      <li>Mobilize resources for establishing a formal education system in the future</li>
-                  </ul>
-                  
-                  <p>The Day Care Centre's resource needs were identified as manpower, accommodation, teaching aids, recreational aids, and toilet facilities. Mrs. Cecilia Sakyiamah was appointed Head Teacher in late 1992, followed by the engagement of teaching staff. With Church funds, a two-classroom block with facilities for a store and office was built, and the Day Care Centre formally opened on January 12, 1993, with the motto: "Knowledge, Truth and Service."</p>
-                  
-                  <h5>Foreign Aid</h5>
-                  <p>In 1991, during the Education Committee's preparations, Msgr. Anthony Balee returned from Rome with news of a potential financial assistance offer from a Swedish NGO through his friend, Mr. Berut Kalseen from Stockholm. Although the initial offer for vocational training didn't align with the Church's plans, they applied for support for formal education.</p>
-                  
-                  <p>The application was submitted to Sweden on September 9, 1991. While the Day Care Centre idea was enthusiastically welcomed by the community, the school project faced resistance due to:</p>
-                  <ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem;">
-                      <li>Limited land space for both school and Church building projects</li>
-                      <li>Concerns that Church funds would be diverted to the school project, slowing progress on the Church community's priorities</li>
-                  </ul>
-                  
-                  <p>The funding application was successful, with Caritas Sweden becoming the benefactor. The initial remittance of $22,000.00 was received in 1992 but wasn't disbursed until December 1994, when the school building project's foundation began. Caritas has remained the primary financier, with normal support from the Church.</p>
-
-                  <h4>Succession of Parish Pastoral Council Chairmen</h4>
-                  
-                  <h5>Mr. Albert Adubofour (1995-1997)</h5>
-                  <p>Mr. Albert Adubofour took over from Mr. Matthew Koomson in March 1995 and served until November 1997. It was during his chairmanship that the construction of the Church building was started.</p>
-                  
-                  <h5>Mr. Jacob Mensah Demitia (1997-2001)</h5>
-                  <p>Mr. Mensah Demitia was elected chairman in November 1997 and served until 2001. During his tenure, the Chapel block works were carried out.</p>
-                  
-                  <h5>Mr. Edward Taylor (2001-2006)</h5>
-                  <p>Mr. Edward Taylor took office as chairman in 2001, with his first term ending in 2004. He was re-elected for a second term, which ended in 2006. During his administration:</p>
-                  <ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem;">
-                      <li>The plastering work of the Chapel was completed</li>
-                      <li>Decoration, ceiling, and painting works of the chapel were undertaken</li>
-                      <li>Tiling of the Chapel floor and corridor with terrazzo was carried out</li>
-                      <li>A piece of land behind the chapel was acquired for the construction of a Mission House</li>
-                  </ul>
-                  
-                  <h5>Mr. John Kofi Agama (2006-2008)</h5>
-                  <p>Mr. John Kofi Agama's administration began in 2006 and ended in 2008.</p>
-                  
-                  <h5>Mr. Dennis Aggrey-Ampiah (2008-2010)</h5>
-                  <p>Mr. Dennis Aggrey-Ampiah succeeded Mr. John Agama in 2008 and left office in 2010. During his tenure, the pews in the Chapel were acquired.</p>
-                  
-                  <h5>Mr. John Kuma Cato (2010-2014)</h5>
-                  <p>Mr. John Kuma Cato succeeded Mr. Dennis Aggrey-Ampiah in 2010. He was re-elected in 2012 and completed his tenure in 2014. His administration's achievements included:</p>
-                  <ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem;">
-                      <li>Construction of a permanent Altar, Ambos, and Blessed Sacrament Chapel</li>
-                      <li>Refurbishment of the Conference Room</li>
-                      <li>Initiation of the Mission House construction</li>
-                  </ul>
-                  
-                  <h5>Mr. Alfred Koomson (2015-2016)</h5>
-                  <p>Mr. Alfred Koomson succeeded Mr. John Kuma Cato in 2015 and served until 2016. During his administration:</p>
-                  <ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem;">
-                      <li>The Mission House project was completed</li>
-                      <li>A building for the new nursery near the Mission House was acquired and rehabilitated</li>
-                  </ul>
-                  
-                  <h5>Mr. Thomas Ennin (2017-Present)</h5>
-                  <p>Mr. Thomas Ennin succeeded Mr. Alfred Koomson and was elected chairman in April 2017. He is the current chairman of the Parish Pastoral Council.</p>
-                  
-                  <h4>Construction of Parish Hall/School Building Complex</h4>
-                  <p>The construction of a three-story Parish Hall/School Building Complex was initiated in 2017 and is currently in progress. This ambitious project represents the parish's continued commitment to education and community development.</p>
-                 
-                  <h3>Priests Who Have Served The Community</h3>
-                <p>Many prominent priests have served the community and they all contributed immensely to the growth of the church. These are:</p>
-                
-                <div class="table-responsive">
-                    <table class="priest-table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Priest</th>
-                                <th>Durations</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Rev. Fr. Charles Roslin</td>
-                                <td>1979 - 1980</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Rev. Fr. Paul Van Riel</td>
-                                <td>1980 - 1983</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Msgr. Anthony Balee</td>
-                                <td>1983 – 1993</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Msgr. Thomas Mensah</td>
-                                <td>1993 – 1997</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Msgr. Francis Bernard Ocran</td>
-                                <td>1997 – 2000</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Rev. Fr. Andy Soley</td>
-                                <td>2000 – 2006</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Rev. Fr. Henry Frempong</td>
-                                <td>2006 – 2010</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Rev. Fr. Francis Adoboli</td>
-                                <td>2010 – 2012</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>Rev. Fr. Eric Oduro Wiafe</td>
-                                <td>2012 – 2016</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>Rev. Fr. Bonaventure Quaidoo</td>
-                                <td>2016 - 2020</td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td>Rev Fr. Robert Billy Gbettey</td>
-                                <td>2020 - Present</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <h3>Parishioners in Priestly and Religious Vocations</h3>
-                <p>St. Stephen Parish is blessed with two diocesan Priests, Rev. Fr. Stephen Kofi Sapaku (ordained on 14th August, 2010). Fr. Sapaku is currently on secondment to the Donkorkrom Vicariate. Fr. Derrick Dowuna-Hammond was ordained in 2018 and presently assistant priest at the Holy Spirit Cathedral, Accra.</p>
-                <p>The church is proud of three of its own in religious congregations namely, Rev. Sr. Mary Magdalene Agyapong (HDR) in Koforidua, Rev. Sr. Georgina Ofori Kyei (Equatorial Guinea) and Rev. Sr. Elizabeth Ndede (Kwahu Tafo).</p>
-                
-                <h3>Seminarians</h3>
-                <p>Mr. James Gyekye (T4) and Mr. Clement Quaigraine (T2) are seminarians at St. Peter's Regional Seminary, Pedu. Mary Seat of Wisdom, Odoben Manhean, an outstation of St. Stephen has a seminarian, Joseph Sackey, a (P2) student of St. Paul's Seminary, Sowutuom.</p>
-                
-                <h3>The Church</h3>
-                <p>The population of the church in the database at the time of the last transfer is nine hundred and seventy-nine (979). Active attendance on Sundays is four hundred (400). There are close to three hundred (300) communicants on Sundays.</p>
-            </div>
-
-            <div class="team-section">
-                <h2>Our Parish Leadership</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="images/priest.jpg" alt="Parish Priest" onerror="this.src='https://via.placeholder.com/150?text=Parish+Priest'">
-                        <h3>Rev. Fr. Robert Billy Gbettey</h3>
-                        <p>Parish Priest</p>
-                        <p>Fr. Robert has been leading our parish since 2020. He is dedicated to fostering a community of faith and service.</p>
+                        <div class="purpose-card vision">
+                            <h3>Our Vision</h3>
+                            <p>We aim to remain a Christ-centered parish where clergy and lay faithful grow together in prayer, unity, and responsible service to the Church and society.</p>
+                        </div>
                     </div>
-                    <div class="team-member">
-                        <img src="images/secretary.jpg" alt="Parish Secretary" onerror="this.src='https://via.placeholder.com/150?text=Parish+Secretary'">
-                        <h3>Mrs. Sylvia Yob Paaga</h3>
-                        <p>Parish Secretary</p>
-                        <p>Mrs. Paaga manages the parish office, handling secretarial services, front desk duties, and maintaining the parish database.</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="images/assistant.jpg" alt="Office Assistant" onerror="this.src='https://via.placeholder.com/150?text=Office+Assistant'">
-                        <h3>Mr. Augustine Selase Adotri</h3>
-                        <p>Office Assistant</p>
-                        <p>Augustine assists in the parish office, supporting the administrative functions of the parish.</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="images/parish-council.jpg" alt="Parish Council Chair" onerror="this.src='https://via.placeholder.com/150?text=Council+Chair'">
-                        <h3>Parish Council Chairperson</h3>
-                        <p>The Parish Council Chair leads our parish council with wisdom and dedication to our community's growth.</p>
+
+                    <div class="purpose-right">
+                        <div class="purpose-image-frame">
+                            <img src="images/church-hero.jpg" alt="St. Stephen Catholic Church" class="purpose-image">
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="parish-groups-section">
-                <h2>Parish Groups</h2>
-                
-                <div class="groups-container">
-                    <div class="group-category">
-                        <h3><i class="fas fa-users"></i> Societies in the Church</h3>
-                        <ul class="group-list">
-                            <li>St. Theresa of the Child Jesus</li>
-                            <li>Christian Mother Association (CMA)</li>
-                            <li>Catholic Men Confraternity (CMC)</li>
-                            <li>St. Michael Ewe Society</li>
-                            <li>Knight & Ladies Auxiliary of St. John International</li>
-                            <li>Akan Kuo</li>
-                            <li>Knight & Ladies of Marshall</li>
-                            <li>Ushers</li>
-                        </ul>
+            <div class="link-grid">
+                <a href="history.html" class="link-card">
+                    <img src="images/church-hero.jpg" alt="St. Stephen Catholic Church history" class="card-thumb">
+                    <h3>History</h3>
+                    <p>Read the parish story from its beginnings in Darkuman to its growth over the years.</p>
+                </a>
+                <a href="clergy.html" class="link-card">
+                    <img src="images/Logos/Church's Logo.png" alt="Clergy of St. Stephen Catholic Church" class="card-thumb">
+                    <h3>Clergy</h3>
+                    <p>See the priests who have served the community and the vocations the parish has produced.</p>
+                </a>
+                <a href="parish-leadership.html" class="link-card">
+                    <h3>Our Parish Leadership</h3>
+                    <p>View the updated leadership list from the parish source file.</p>
+                </a>
+                <a href="upcoming-events.html" class="link-card">
+                    <h3>Upcoming Events</h3>
+                    <p>Check worship times, bulletin highlights, and current parish activities.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container content-stack">
+            <div class="content-card">
+                <h2>Parish Overview</h2>
+                <p>The St. Stephen Catholic Church is an offshoot of Holy Family Parish, Mataheko. The community in Darkuman was formed in March 1978 after the missionary outreach that encouraged Catholic worship closer to the suburbs of Accra.</p>
+                <p>The parish land was donated by Mr. Stephen Kersi, while the Mission House and Nursery School lands were later purchased. Over time the community grew in worship, pastoral organization, education, and infrastructure.</p>
+                <div class="chip-row">
+                    <span class="chip">Founded in 1978</span>
+                    <span class="chip">Darkuman, Accra</span>
+                    <span class="chip">Catholic Community</span>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h2>Leadership Snapshot</h2>
+                <div class="profile-grid">
+                    <div class="profile-card">
+                        <img src="images/Logos/Church's Logo.png" alt="President headshot" class="avatar">
+                        <div class="role">President</div>
+                        <div class="name">Rev. Fr Raphael Boansi</div>
                     </div>
-                    
-                    <div class="group-category">
-                        <h3><i class="fas fa-child"></i> Youth Groups</h3>
-                        <ul class="group-list">
-                            <li>Christian Daughters Association</li>
-                            <li>Catholic Organization for Social and Religious Advancement (COSRA)</li>
-                            <li>Catholic Youth Organization (C.Y.O)</li>
-                            <li>Knights & Ladies of the Altar (KNOLTA)</li>
-                            <li>Catholic Association of Student Union (CASU)</li>
-                            <li>Junior Marshallans</li>
-                            <li>St. John's Cadets</li>
-                            <li>Marian Voices</li>
-                            <li>Lectors</li>
-                            <li>Sunday School</li>
-                        </ul>
+                    <div class="profile-card">
+                        <img src="images/Logos/Church's Logo.png" alt="Vice President headshot" class="avatar">
+                        <div class="role">Vice President</div>
+                        <div class="name">Rev. Fr John Ametepe</div>
                     </div>
-                    
-                    <div class="group-category">
-                        <h3><i class="fas fa-music"></i> Singing Groups</h3>
-                        <ul class="group-list">
-                            <li>St. Stephen Choir</li>
-                            <li>Marian Voices</li>
-                            <li>St. Cecilia Singing Band</li>
-                            <li>St. Gabriel Singing Band</li>
-                        </ul>
+                    <div class="profile-card">
+                        <img src="images/kindpng_145952.png" alt="Chairperson headshot" class="avatar">
+                        <div class="role">Chairperson</div>
+                        <div class="name">Mr. Kofi Atta Yorke</div>
                     </div>
-                    
-                    <div class="group-category">
-                        <h3><i class="fas fa-church"></i> Ministries</h3>
-                        <ul class="group-list">
-                            <li>KNOLTA</li>
-                            <li>Ushers</li>
-                            <li>Lectors</li>
-                            <li>Marian Voices</li>
-                        </ul>
+                    <div class="profile-card">
+                        <img src="images/kindpng_145952.png" alt="Vice Chairperson headshot" class="avatar">
+                        <div class="role">Vice Chairperson</div>
+                        <div class="name">Ms. Anita Stella Gyefour</div>
                     </div>
-                    
-                    <div class="group-category">
-                        <h3><i class="fas fa-pray"></i> Devotional Groups</h3>
-                        <ul class="group-list">
-                            <li>Legion of Mary</li>
-                            <li>Sacred Heart Confraternity</li>
-                            <li>St. Anthony's Guild</li>
-                            <li>Catholic Charismatic Renewal (C.C.R.)</li>
-                            <li>St. Vincent de Paul</li>
-                        </ul>
+                    <div class="profile-card">
+                        <img src="images/kindpng_145952.png" alt="Secretary headshot" class="avatar">
+                        <div class="role">Secretary</div>
+                        <div class="name">Ms. Winifred Taylor</div>
                     </div>
-                    
-                    <div class="group-category">
-                        <h3><i class="fas fa-hands-helping"></i> Charity</h3>
-                        <ul class="group-list">
-                            <li>St. Vincent de Paul</li>
-                        </ul>
+                    <div class="profile-card">
+                        <img src="images/kindpng_145952.png" alt="Vice Secretary headshot" class="avatar">
+                        <div class="role">Vice Secretary</div>
+                        <div class="name">Ms. Georgina Doagbodzie</div>
+                    </div>
+                    <div class="profile-card">
+                        <img src="images/kindpng_145952.png" alt="Organiser headshot" class="avatar">
+                        <div class="role">Organiser</div>
+                        <div class="name">Madam Elsie Aba Sam</div>
+                    </div>
+                    <div class="profile-card">
+                        <img src="images/kindpng_145952.png" alt="Church Secretary headshot" class="avatar">
+                        <div class="role">Church Secretary</div>
+                        <div class="name">Mrs. Sylvia Paga</div>
                     </div>
                 </div>
             </div>
-            
-            <div class="parish-office-section">
-                <h2>Parish Office</h2>
-                <p>The Parish Office was furnished in 2013 to serve as a congenial room to work in and meet parishioners and visitors alike. A full-time secretary (Mrs. Sylvia Yob Paaga) was engaged to:</p>
-                <ul>
-                    <li>Handle secretarial services viz. drafting of letters, photocopy, filling of documents, printing of weekly bulletin, keeping records of annual dues cards, issuing receipts for all official payments and making deposits into the bank account</li>
-                    <li>Serve as front desk officer attending to some daily needs of parishioners such as recording Mass intentions, booking of appointments, handing of telephone calls etc. in the priest's absence due to official engagements</li>
-                    <li>Installation and updating of database of registered parishioners to provide accurate statistics for planning and of reference purposes</li>
-                    <li>Collection of school fees of Nursery Department</li>
-                </ul>
-                <p>A multi-purpose photocopier with scanning and printing is available. She is now assisted by Augustine Selase Adotri who is offering his internship here.</p>
-            </div>
-            
-            <div class="values-section">
-                <h2>Our Core Values</h2>
-                <div class="announcement-cards">
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-pray"></i></div>
+
+            <div class="content-card">
+                <h2>Core Values</h2>
+                <div class="link-grid">
+                    <div class="link-card">
                         <h3>Faith</h3>
-                        <p>We are committed to nurturing a deep and living faith in Jesus Christ through worship, prayer, and study of Scripture.</p>
+                        <p>We are committed to worship, prayer, and Catholic formation rooted in Christ.</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <div class="link-card">
                         <h3>Community</h3>
-                        <p>We foster a sense of belonging and mutual support among all members, celebrating our unity in diversity.</p>
+                        <p>We build a welcoming parish family where people support one another in unity and service.</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-hands-helping"></i></div>
+                    <div class="link-card">
                         <h3>Service</h3>
-                        <p>Following Christ's example, we serve others with love and compassion, reaching out to those in need within and beyond our parish.</p>
+                        <p>We serve the parish and the wider community with compassion, generosity, and responsibility.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-church"></i>
-                    <h2>St. Stephen Parish</h2>
-                    <p>Darkuman, Accra, Ghana</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="mass-schedule.html">Mass Schedule</a></li>
-                        <li><a href="ministries.html">Parish Groups</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Darkuman, Accra, Ghana</p>
-                    <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
-                    <p><i class="fas fa-envelope"></i> info@ststephendarkuman.org</p>
-                </div>
-                <div class="footer-social">
-                    <h3>Connect With Us</h3>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 St. Stephen Parish. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
     <script src="script.js"></script>
 </body>

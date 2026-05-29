@@ -1,0 +1,30 @@
+{
+  "bulletins": [
+    {
+      "title": "BULLETIN 10TH MAY, 2026 (YEAR A)",
+      "date": "2026-05-10",
+      "fileName": "BULLETIN 10TH MAY, 2026 (YEAR A).pdf"
+    },
+    {
+      "title": "BULLETIN  3RD MAY, 2026 (YEAR A)",
+      "date": "2026-05-03",
+      "fileName": "BULLETIN  3RD MAY, 2026 (YEAR A).pdf"
+    },
+    {
+      "title": "BULLETIN  26TH APRIL, 2026 (YEAR A)",
+      "date": "2026-04-26",
+      "fileName": "BULLETIN  26TH APRIL, 2026 (YEAR A).pdf"
+    },
+    {
+      "title": "BULLETIN 1ST SEPTEMBER, 2024 (YEAR B)",
+      "date": "2024-09-01",
+      "fileName": "BULLETIN 1ST SEPTEMBER, 2024 (YEAR B).pdf"
+    },
+    {
+      "title": "BULLETIN 1ST SEPTEMBER^J 2024 (YEAR B)",
+      "date": "2024-09-01",
+      "fileName": "BULLETIN 1ST SEPTEMBER^J 2024 (YEAR B).pdf"
+    }
+  ]
+}
+

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events - St. Stephen Catholic Church, Darkuman</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/church-hero.jpg') no-repeat center center/cover; padding: 6rem 0;">
+        <div class="hero-content">
+            <h2>Upcoming Events & Activities</h2>
+            <p>Worship, devotions, and parish life happenings</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="content-stack">
+                <div class="content-card">
+                    <h2>Weekly Mass Schedule</h2>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>Time</th>
+                                    <th>Activity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sunday</td>
+                                    <td>7:00 AM</td>
+                                    <td>First Mass</td>
+                                </tr>
+                                <tr>
+                                    <td>Sunday</td>
+                                    <td>9:15 AM</td>
+                                    <td>Second Mass</td>
+                                </tr>
+                                <tr>
+                                    <td>Monday</td>
+                                    <td>7:00 PM</td>
+                                    <td>Evening Mass</td>
+                                </tr>
+                                <tr>
+                                    <td>Tuesday</td>
+                                    <td>6:00 AM</td>
+                                    <td>Morning Mass</td>
+                                </tr>
+                                <tr>
+                                    <td>Wednesday</td>
+                                    <td>6:00 AM</td>
+                                    <td>Morning Mass</td>
+                                </tr>
+                                <tr>
+                                    <td>Thursday</td>
+                                    <td>6:00 AM</td>
+                                    <td>Morning Mass</td>
+                                </tr>
+                                <tr>
+                                    <td>Friday</td>
+                                    <td>7:00 PM</td>
+                                    <td>Youth Mass</td>
+                                </tr>
+                                <tr>
+                                    <td>Saturday</td>
+                                    <td>6:30 AM</td>
+                                    <td>Morning Mass</td>
+                                </tr>
+                                <tr>
+                                    <td>Saturday</td>
+                                    <td>6:00 PM</td>
+                                    <td>Sunday Vigil Mass</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 style="margin-top: 1.5rem;">Monthly Parish Events</h3>
+                    <div class="event-controls" aria-label="Event filters">
+                        <label>
+                            Month
+                            <select id="event-month"></select>
+                        </label>
+                        <label>
+                            Organization
+                            <select id="event-org"></select>
+                        </label>
+                        <label>
+                            Search
+                            <input id="event-search" type="text" placeholder="Search events">
+                        </label>
+                    </div>
+                    <div id="event-grid" class="event-grid"></div>
+                    <p id="event-empty" class="event-empty" hidden>No events found for this month.</p>
+                </div>
+
+                <div class="content-card">
+                    <h2>Devotions & Prayer Groups</h2>
+                    <div class="two-column">
+                        <div class="notice-box">
+                            <h3>Daily Devotions</h3>
+                            <ul>
+                                <li><strong>Morning Prayer:</strong> 6:00 AM before daily Mass</li>
+                                <li><strong>Rosary:</strong> Daily after Mass</li>
+                            </ul>
+                        </div>
+                        <div class="notice-box">
+                            <h3>Weekly Meetings</h3>
+                            <ul>
+                                <li><strong>Legion of Mary:</strong> Tuesday evenings</li>
+                                <li><strong>Charismatic Renewal:</strong> Thursday evenings</li>
+                                <li><strong>Christian Mothers:</strong> Friday evenings</li>
+                                <li><strong>Catholic Men's Confraternity:</strong> Saturday mornings</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h2>Stay Connected</h2>
+                    <p>For the most up-to-date information about parish events, feast days, and special celebrations, please:</p>
+                    <ul>
+                        <li>Check the weekly bulletin at the entrance of the church</li>
+                        <li>Join our parish WhatsApp group</li>
+                        <li>Follow us on social media</li>
+                        <li>Contact the parish office</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <a href="about.html" class="btn"><i class="fas fa-arrow-left"></i> Back to About</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const monthSelect = document.getElementById('event-month');
+            const orgSelect = document.getElementById('event-org');
+            const searchInput = document.getElementById('event-search');
+            const grid = document.getElementById('event-grid');
+            const emptyState = document.getElementById('event-empty');
+
+            if (!monthSelect || !orgSelect || !searchInput || !grid || !emptyState) {
+                return;
+            }
+
+            const months = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+
+            const events = [
+                { month: 'January', org: 'CMA', program: 'Solemnity of Mary Mother of God', date: '1-Jan' },
+                { month: 'January', org: 'PYC', program: 'Holy Child Week', date: '1-Jan' },
+                { month: 'January', org: 'KNOLTA', program: 'Seminar / Workshop', date: '1-Jan' },
+                { month: 'January', org: 'CDSA', program: 'New Year Thanksgiving & Vision Retreat', date: '1-Jan' },
+                { month: 'January', org: 'St. Gabriel', program: 'Annual Thanksgiving, Grotto & Memorial Mass', date: '03-Jan' },
+                { month: 'January', org: 'CCR – Darkuman', program: 'Day of Renewal, Kpehe', date: '06-Jan' },
+                { month: 'January', org: 'Catechists', program: 'Thanksgiving Mass / Distribution of Annual Program', date: '10-Jan' },
+                { month: 'January', org: 'CCR – Darkuman', program: 'Praying Over', date: '11-Jan' },
+                { month: 'January', org: 'KSJI', program: 'Leadership Seminar', date: '12-Jan' },
+                { month: 'January', org: 'CMA', program: '1st Deanery Meeting', date: '17-Jan' },
+                { month: 'January', org: 'CCR – Darkuman', program: 'Understanding Prayer Meeting', date: '18-Jan' },
+                { month: 'January', org: 'CMA', program: 'Deanery Thanksgiving Prayer Meeting', date: '24-Jan' },
+                { month: 'January', org: 'CCR – Darkuman', program: 'Archdiocesan Prayer Meeting', date: '25-Jan' },
+                { month: 'January', org: 'St. Gabriel', program: 'Annual Get-Together', date: '25-Jan' },
+                { month: 'January', org: 'St. Theresa', program: 'Saturday Morning Mass', date: '4th Saturday' },
+                { month: 'January', org: 'Marshall', program: 'Spiritual Enlightenment for the Year 2026', date: 'January' },
+
+                { month: 'February', org: 'CCR – Darkuman', program: 'Divine Position to Manifest God’s Glory', date: '01-Feb' },
+                { month: 'February', org: 'CMA', program: 'Executive Meeting', date: '01-Feb-26' },
+                { month: 'February', org: 'PYC', program: 'Agape Feast / Dinner & Awards', date: 'Feb-26' },
+                { month: 'February', org: 'KNOLTA', program: 'Servers Conference', date: 'Feb-26' },
+                { month: 'February', org: 'Marian Voices', program: 'Retreat', date: 'Feb-26' },
+                { month: 'February', org: 'CDSA', program: 'Love in Action Outreach', date: 'Feb-26' },
+                { month: 'February', org: 'CCR – Darkuman', program: 'Renewal of Mind', date: '08-Feb' },
+                { month: 'February', org: 'COSRA', program: 'General Meeting / Gifts Sharing', date: '08-Feb' },
+                { month: 'February', org: 'CMA', program: 'General Meeting', date: '08-Feb-26' },
+                { month: 'February', org: 'KSJI', program: 'Repandre L’amour', date: '08-Feb-26' },
+                { month: 'February', org: 'Catechists', program: 'Bible: Pentateuch (Torah)', date: '14-Feb' },
+                { month: 'February', org: 'CCR – Darkuman', program: 'The Need for Repentance', date: '15-Feb' },
+                { month: 'February', org: 'CCR – Darkuman', program: 'LSS Launching', date: '15-Feb' },
+                { month: 'February', org: 'COSRA', program: 'Deanery Meeting', date: '15-Feb' },
+                { month: 'February', org: 'CMA', program: 'Ash Wednesday', date: '18-Feb-26' },
+                { month: 'February', org: 'CMA', program: 'Arch Lenten Retreat', date: '21-Feb-26' },
+                { month: 'February', org: 'CCR – Darkuman', program: 'Humility', date: '22-Feb' },
+                { month: 'February', org: 'COSRA', program: 'Talk on Fasting, Alms-giving & Prayer', date: '23-Feb' },
+                { month: 'February', org: 'CMA', program: '2nd Deanery Meeting', date: '28-Feb-26' },
+                { month: 'February', org: 'St. Theresa', program: 'Saturday Morning Mass', date: '4th Saturday' },
+                { month: 'February', org: 'St. Theresa', program: 'General Meeting', date: '4th Sunday' },
+                { month: 'February', org: 'Marshall', program: 'Exchange of Chocolate & Reading of Accounts', date: 'Feb-26' },
+
+                { month: 'March', org: 'CCR – Darkuman', program: 'New Life in Christ', date: '01-Mar' },
+                { month: 'March', org: 'CMA', program: 'Executive Meeting', date: '01-Mar-26' },
+                { month: 'March', org: 'PYC', program: 'Health Screening', date: 'Mar-26' },
+                { month: 'March', org: 'CDSA', program: 'Cultural & Talent Sunday / General Meeting', date: 'Mar-26' },
+                { month: 'March', org: 'KSJI', program: 'Drills & Lecture Day 2.0', date: '06-Mar-26' },
+                { month: 'March', org: 'CCR – Darkuman', program: 'LSS Begins', date: '08-Mar' },
+                { month: 'March', org: 'COSRA', program: 'General Meeting', date: '08-Mar' },
+                { month: 'March', org: 'CMA', program: 'General Meeting / Statement of Account', date: '08-Mar-26' },
+                { month: 'March', org: 'Catechists', program: 'Bible: Historical Books (Lenten Retreat)', date: '14-Mar' },
+                { month: 'March', org: 'CCR – Darkuman', program: 'LSS Session', date: '15-Mar' },
+                { month: 'March', org: 'COSRA', program: 'Deanery Meeting', date: '15-Mar' },
+                { month: 'March', org: 'Catechists', program: 'Orientation for Aspirants', date: '15-Mar' },
+                { month: 'March', org: 'CCR – Darkuman', program: 'LSS Session', date: '22-Mar' },
+                { month: 'March', org: 'CMA', program: 'All Leaders Boot Camp', date: '28-Mar-26' },
+                { month: 'March', org: 'CCR – Darkuman', program: 'LSS Session', date: '29-Mar' },
+                { month: 'March', org: 'COSRA', program: 'Talk on Leadership', date: '30-Mar' },
+                { month: 'March', org: 'St. Theresa', program: 'Kaneshie Deanery Quarterly Council Meeting', date: '3rd Week in March' },
+                { month: 'March', org: 'Marshall', program: 'Joint Meeting with Junior Marshallans', date: 'March' },
+                { month: 'March', org: 'COSRA', program: 'Leadership Seminar', date: 'March' },
+
+                { month: 'April', org: 'PYC', program: 'Youth in Worship', date: 'Apr-26' },
+                { month: 'April', org: 'KNOLTA', program: 'Deanery Donation', date: 'Apr-26' },
+                { month: 'April', org: 'KNOLTA', program: 'Cook-a-thon', date: 'Apr-26' },
+                { month: 'April', org: 'Marian Voices', program: 'Road to the Cross', date: 'Apr-26' },
+                { month: 'April', org: 'Marian Voices', program: 'Exchange of Gifts', date: 'Apr-26' },
+                { month: 'April', org: 'CDSA', program: 'Easter Reflections & Community Service', date: 'Apr-26' },
+                { month: 'April', org: 'Marshall', program: 'Easter Activities', date: 'Apr-26' },
+                { month: 'April', org: 'CCR – Darkuman', program: 'LSS Session', date: '05-Apr' },
+                { month: 'April', org: 'CMA', program: 'Executive Meeting', date: '05-Apr-26' },
+                { month: 'April', org: 'Catechists', program: 'Health Talk / Screening', date: '11-Apr' },
+                { month: 'April', org: 'CCR – Darkuman', program: 'LSS Session', date: '12-Apr' },
+                { month: 'April', org: 'COSRA', program: 'General Meeting', date: '12-Apr' },
+                { month: 'April', org: 'CMA', program: 'General Meeting', date: '12-Apr-26' },
+                { month: 'April', org: 'CCR – Darkuman', program: 'Thomas Frank Arthur Memorial Lectures', date: '19-Apr' },
+                { month: 'April', org: 'COSRA', program: 'Deanery Meeting', date: '19-Apr' },
+                { month: 'April', org: 'CMA', program: '3rd Deanery Meeting', date: '25-Apr-26' },
+                { month: 'April', org: 'CCR – Darkuman', program: 'LSS Session', date: '26-Apr' },
+                { month: 'April', org: 'COSRA', program: 'COSRA Week Celebration', date: '26 Apr – 3 May' },
+
+                { month: 'May', org: 'Marian Voices', program: 'Inter-Choir Games', date: 'May-26' },
+                { month: 'May', org: 'CDSA', program: '12th Anniversary Celebration', date: 'May-26' },
+                { month: 'May', org: 'CCR – Darkuman', program: 'LSS Session', date: '03-May' },
+                { month: 'May', org: 'CMA', program: 'Executive Meeting', date: '03-May-26' },
+                { month: 'May', org: 'Catechists', program: 'Bible: Wisdom Books', date: '09-May' },
+                { month: 'May', org: 'CCR – Darkuman', program: 'LSS Session', date: '10-May' },
+                { month: 'May', org: 'COSRA', program: 'Arch Exhibition', date: '10-May' },
+                { month: 'May', org: 'CMA', program: 'General Meeting / Mother’s Day', date: '10-May-26' },
+                { month: 'May', org: 'CCR – Darkuman', program: 'Upper Room Experience', date: '24-May' },
+                { month: 'May', org: 'CCR – Darkuman', program: 'LSS Commissioning', date: '24-May' },
+                { month: 'May', org: 'COSRA', program: 'Time with Mary & Jesus', date: '25-May' },
+                { month: 'May', org: 'CMA', program: '4th Deanery Meeting', date: '30-May-26' },
+                { month: 'May', org: 'COSRA', program: 'Arch Prayer for Marriages & Vocations', date: '31-May' },
+                { month: 'May', org: 'CCR – Darkuman', program: 'Pentecost Novena', date: '15–23 May' },
+                { month: 'May', org: 'Marshall', program: 'Membership Drive (St. Stephen Catholic Church)', date: 'May' },
+
+                { month: 'June', org: 'CDSA', program: 'Mid-Year General Meeting / Financial Report', date: 'Jun-26' },
+                { month: 'June', org: 'Catechists', program: 'Deutocanonical Books', date: '06-Jun' },
+                { month: 'June', org: 'CCR – Darkuman', program: 'Joint Prayer Meeting (JOMA & AGAPE)', date: '07-Jun' },
+                { month: 'June', org: 'CMA', program: 'Executive Meeting', date: '07-Jun-26' },
+                { month: 'June', org: 'CMA', program: 'Deanery Prayer Meeting', date: '13-Jun-26' },
+                { month: 'June', org: 'CCR – Darkuman', program: 'Blessings of Giving', date: '14-Jun' },
+                { month: 'June', org: 'COSRA', program: 'General Meeting / Fundraising', date: '14-Jun' },
+                { month: 'June', org: 'CMA', program: 'General Meeting / Talk on Menopause', date: '14-Jun-26' },
+                { month: 'June', org: 'CCR – Darkuman', program: 'Joint Prayer Meeting with JOMA', date: '21-Jun' },
+                { month: 'June', org: 'COSRA', program: 'Deanery Meeting', date: '21-Jun' },
+                { month: 'June', org: 'COSRA', program: 'Arch Presidential Assembly', date: '22-Jun' },
+                { month: 'June', org: 'Catechists', program: 'Patron Saint Feast', date: '24-Jun' },
+                { month: 'June', org: 'CMA', program: '5th Deanery Meeting', date: '27-Jun-26' },
+                { month: 'June', org: 'CCR – Darkuman', program: 'Thanksgiving & Offering', date: '28-Jun' },
+                { month: 'June', org: 'COSRA', program: 'Intercessory Prayer for Families', date: '29-Jun' },
+                { month: 'June', org: 'CCR – Darkuman', program: 'Week of Fasting & Prayer', date: '22–27 Jun' },
+                { month: 'June', org: 'St. Theresa', program: '3-Day Retreat', date: '30 Jun – 2 Jul' },
+                { month: 'June', org: 'Marshall', program: 'Committee Formation for Anniversary', date: 'June' },
+
+                { month: 'July', org: 'CCR – Darkuman', program: 'Operation Hannah', date: '01-Jul' },
+                { month: 'July', org: 'COSRA', program: 'Arch General Cleaning Exercise', date: '01-Jul' },
+                { month: 'July', org: 'PYC', program: 'Youth in Worship', date: 'Jul-26' },
+                { month: 'July', org: 'KSJI', program: 'Cadets & Juniors Day Out', date: 'Jul-26' },
+                { month: 'July', org: 'CDSA', program: 'Family & Children Fun Day', date: 'Jul-26' },
+                { month: 'July', org: 'CCR – Darkuman', program: 'Mid-Year Review Worship', date: '05-Jul' },
+                { month: 'July', org: 'CMA', program: 'Executive Meeting', date: '05-Jul-26' },
+                { month: 'July', org: 'Catechists', program: 'Gospels Meeting', date: '11-Jul' },
+                { month: 'July', org: 'CMA', program: 'Deanery Prayer Meeting', date: '11-Jul-26' },
+                { month: 'July', org: 'CCR – Darkuman', program: 'Put Your Gifts to Use', date: '12-Jul' },
+                { month: 'July', org: 'COSRA', program: 'General Meeting', date: '12-Jul' },
+                { month: 'July', org: 'CMA', program: 'General Meeting', date: '12-Jul-26' },
+                { month: 'July', org: 'CCR – Darkuman', program: 'Visitation & Evangelization', date: '19-Jul' },
+                { month: 'July', org: 'COSRA', program: 'Deanery Meeting', date: '19-Jul' },
+                { month: 'July', org: 'CMA', program: 'Deanery Socialization', date: '25-Jul-26' },
+                { month: 'July', org: 'CCR – Darkuman', program: 'Time with the Priests', date: '26-Jul' },
+                { month: 'July', org: 'COSRA', program: 'Prayer Moment', date: '26-Jul' },
+                { month: 'July', org: 'COSRA', program: 'Health Talk – Healthy Diets', date: '27-Jul' },
+                { month: 'July', org: 'Marshall', program: 'Excursion / Day Out', date: 'July' },
+
+                { month: 'August', org: 'KNOLTA', program: 'Archdiocesan Games', date: 'Aug-26' },
+                { month: 'August', org: 'CDSA', program: 'Grotto Activity', date: 'Aug-26' },
+                { month: 'August', org: 'CCR – Darkuman', program: 'Hygiene & Personal Grooming', date: '02-Aug' },
+                { month: 'August', org: 'CMA', program: 'Executive Meeting', date: '02-Aug-26' },
+                { month: 'August', org: 'Catechists', program: 'Acts of the Apostles', date: '08-Aug' },
+                { month: 'August', org: 'CMA', program: '6th Deanery Meeting', date: '08-Aug-26' },
+                { month: 'August', org: 'CCR – Darkuman', program: 'Wealth Creation', date: '09-Aug' },
+                { month: 'August', org: 'COSRA', program: 'General Meeting / Open Forum', date: '09-Aug' },
+                { month: 'August', org: 'CMA', program: 'General Meeting', date: '09-Aug-26' },
+                { month: 'August', org: 'CMA', program: 'Assumption of the Blessed Virgin Mary', date: '15-Aug-26' },
+                { month: 'August', org: 'CCR – Darkuman', program: 'Children Ministry', date: '16-Aug' },
+                { month: 'August', org: 'COSRA', program: 'Deanery Meeting', date: '16-Aug' },
+                { month: 'August', org: 'CCR – Darkuman', program: 'Desert Experience & Testimonies', date: '23-Aug' },
+                { month: 'August', org: 'COSRA', program: 'Parenting Talk', date: '23-Aug' },
+                { month: 'August', org: 'CCR – Darkuman', program: 'Joint Prayer Meeting', date: '30-Aug' },
+                { month: 'August', org: 'CCR – Darkuman', program: 'One-Week Evangelization', date: '16–23 Aug' },
+                { month: 'August', org: 'CMA', program: 'Deanery Conference', date: '21–23 August 26' },
+                { month: 'August', org: 'COSRA', program: 'National Sports Festival', date: '6–9 Aug' },
+                { month: 'August', org: 'PYC', program: 'Youth Camp / Excursion', date: 'Aug - Sept' },
+                { month: 'August', org: 'Marshall', program: 'Anniversary Report', date: 'August' },
+
+                { month: 'September', org: 'CCR – Darkuman', program: 'Archdiocesan Conference', date: '05-Sep' },
+                { month: 'September', org: 'CCR – Darkuman', program: 'Grace & Favour of God', date: '06-Sep' },
+                { month: 'September', org: 'St. Michael', program: '45th Anniversary', date: '06-Sep' },
+                { month: 'September', org: 'CMA', program: 'Executive Meeting', date: '06-Sep-26' },
+                { month: 'September', org: 'COSRA', program: 'Marian Day', date: '08-Sep' },
+                { month: 'September', org: 'CMA', program: 'Birthday of BVM / Deanery Celebration', date: '08-Sep-26' },
+                { month: 'September', org: 'Catechists', program: 'Pauline Letters', date: '12-Sep' },
+                { month: 'September', org: 'CCR – Darkuman', program: 'Pride & Christian Character', date: '13-Sep' },
+                { month: 'September', org: 'COSRA', program: 'General Meeting / Role Play', date: '13-Sep' },
+                { month: 'September', org: 'CMA', program: 'General Meeting', date: '13-Sep-26' },
+                { month: 'September', org: 'KSJI', program: 'Military Turnout', date: '14-Sep-26' },
+                { month: 'September', org: 'CCR – Darkuman', program: 'Time with the Priests', date: '20-Sep' },
+                { month: 'September', org: 'COSRA', program: 'Deanery Meeting', date: '20-Sep' },
+                { month: 'September', org: 'St. Michael', program: 'Health Talk', date: '20-Sep' },
+                { month: 'September', org: 'CMA', program: '7th Deanery Meeting', date: '26-Sep-26' },
+                { month: 'September', org: 'CCR – Darkuman', program: 'City Praise', date: '27-Sep' },
+                { month: 'September', org: 'COSRA', program: 'Personal Finance Planning', date: '28-Sep' },
+                { month: 'September', org: 'St. Michael', program: 'Patron Feast Day', date: '29-Sep' },
+                { month: 'September', org: 'St. Theresa', program: '9-Day Novena', date: '21–30 Sep' },
+                { month: 'September', org: 'Marshall', program: 'General Meeting', date: 'September' },
+                { month: 'September', org: 'St. Michael', program: 'Spiritual Life Talk', date: 'September' },
+                { month: 'September', org: 'CDSA', program: 'Relationship & Marriage Talk', date: 'Sep-26' },
+
+                { month: 'October', org: 'St. Theresa', program: 'Feast Day Evening Mass', date: '01-Oct' },
+                { month: 'October', org: 'PYC', program: 'Health Month', date: 'Oct-26' },
+                { month: 'October', org: 'KSJI', program: 'Indoor / Inter-Commandery Games', date: 'Oct-26' },
+                { month: 'October', org: 'Marian Voices', program: 'Higher Praise', date: 'Oct-26' },
+                { month: 'October', org: 'CDSA', program: 'Rosary Month Devotion', date: 'Oct-26' },
+                { month: 'October', org: 'CCR – Darkuman', program: 'Evangelization & Mission Awareness', date: '04-Oct' },
+                { month: 'October', org: 'St. Michael', program: 'Thanksgiving & Anniversary Climax', date: '04-Oct' },
+                { month: 'October', org: 'CMA', program: 'Executive Meeting', date: '04-Oct-26' },
+                { month: 'October', org: 'St. Theresa', program: 'Feast Thanksgiving / 25th Anniversary Launch', date: '05-Oct' },
+                { month: 'October', org: 'Catechists', program: 'Revelations', date: '10-Oct' },
+                { month: 'October', org: 'CCR – Darkuman', program: 'Joint Prayer Meeting with Agape', date: '11-Oct' },
+                { month: 'October', org: 'COSRA', program: 'General Meeting', date: '11-Oct' },
+                { month: 'October', org: 'CMA', program: 'General Meeting / Marian Talk', date: '11-Oct-26' },
+                { month: 'October', org: 'CMA', program: '8th Deanery Meeting', date: '17-Oct-26' },
+                { month: 'October', org: 'CCR – Darkuman', program: 'Zonal Prayer Meeting', date: '18-Oct' },
+                { month: 'October', org: 'COSRA', program: 'Deanery Meeting', date: '18-Oct' },
+                { month: 'October', org: 'CMA', program: 'Deanery Crowning of Mary', date: '24-Oct-26' },
+                { month: 'October', org: 'CCR – Darkuman', program: 'Children Ministry', date: '25-Oct' },
+                { month: 'October', org: 'COSRA', program: 'Lawrence Kom Memorial Health Day', date: '25-Oct' },
+                { month: 'October', org: 'CCR – Darkuman', program: 'ADAL End of Year Retreat', date: '11–13 Oct' },
+                { month: 'October', org: 'COSRA', program: 'Rosary Prayers', date: 'From 26 Oct' },
+                { month: 'October', org: 'Marshall', program: 'Presentation to the Aged', date: 'October' },
+
+                { month: 'November', org: 'CCR – Darkuman', program: 'You Are the Light of the World', date: '01-Nov' },
+                { month: 'November', org: 'CMA', program: 'Executive Meeting', date: '01-Nov-26' },
+                { month: 'November', org: 'PYC', program: 'Youth Month', date: 'Nov-26' },
+                { month: 'November', org: 'KSJI', program: 'Movie Night', date: 'Nov-26' },
+                { month: 'November', org: 'KNOLTA', program: 'Archdiocesan Berchfest', date: 'Nov-26' },
+                { month: 'November', org: 'CDSA', program: 'Youth Empowerment Month', date: 'Nov-26' },
+                { month: 'November', org: 'COSRA', program: 'Arch Day Out', date: '04-Nov' },
+                { month: 'November', org: 'CCR – Darkuman', program: 'City Praise', date: '08-Nov' },
+                { month: 'November', org: 'COSRA', program: 'General Meeting', date: '08-Nov' },
+                { month: 'November', org: 'CMA', program: 'General Meeting', date: '08-Nov-26' },
+                { month: 'November', org: 'CCR – Darkuman', program: 'Zonal End of Year Retreat', date: '14-Nov' },
+                { month: 'November', org: 'Catechists', program: 'Mass for Deceased Catechists', date: '14-Nov' },
+                { month: 'November', org: 'CCR – Darkuman', program: 'Bible Sharing & Testimonies', date: '15-Nov' },
+                { month: 'November', org: 'COSRA', program: 'Deanery Meeting', date: '15-Nov' },
+                { month: 'November', org: 'COSRA', program: 'Memorial Day', date: '20-Nov' },
+                { month: 'November', org: 'CCR – Darkuman', program: 'Drama / Choreography', date: '22-Nov' },
+                { month: 'November', org: 'COSRA', program: 'Intercessory Prayers', date: '23-Nov' },
+                { month: 'November', org: 'CMA', program: 'End-of-Year Retreat', date: '28-Nov-26' },
+                { month: 'November', org: 'Marshall', program: 'Elections', date: 'November' },
+                { month: 'November', org: 'COSRA', program: 'National Memorial Mass', date: 'YTD' },
+
+                { month: 'December', org: 'PYC', program: 'Youth in Worship', date: 'Dec-26' },
+                { month: 'December', org: 'KSJI', program: 'Nine Lessons & Carols', date: 'Dec-26' },
+                { month: 'December', org: 'KNOLTA', program: 'End-of-Year Get-Together', date: 'Dec-26' },
+                { month: 'December', org: 'CDSA', program: 'End-of-Year Thanksgiving Party', date: 'Dec-26' },
+                { month: 'December', org: 'CCR – Darkuman', program: 'ADST All-Night', date: '04-Dec' },
+                { month: 'December', org: 'CCR – Darkuman', program: 'Talk on Sacramentals', date: '06-Dec' },
+                { month: 'December', org: 'CMA', program: 'Executive Meeting', date: '06-Dec-26' },
+                { month: 'December', org: 'CMA', program: 'Immaculate Conception – Deanery Celebration', date: '08-Dec-26' },
+                { month: 'December', org: 'CMA', program: 'CMA Day – Arch Celebration', date: '12-Dec-26' },
+                { month: 'December', org: 'CCR – Darkuman', program: 'Staying Faithful to Our Calling', date: '13-Dec' },
+                { month: 'December', org: 'COSRA', program: 'Annual Thanksgiving / Awards', date: '13-Dec' },
+                { month: 'December', org: 'CMA', program: 'General Meeting / Christmas Party', date: '13-Dec-26' },
+                { month: 'December', org: 'CMA', program: 'Nine Lessons & Carols', date: '19-Dec-26' },
+                { month: 'December', org: 'CCR – Darkuman', program: 'Worship & Thanksgiving', date: '20-Dec' },
+                { month: 'December', org: 'COSRA', program: 'Deanery Thanksgiving Mass', date: '20-Dec' },
+                { month: 'December', org: 'CCR – Darkuman', program: 'Review of the Year', date: '27-Dec' },
+                { month: 'December', org: 'COSRA', program: 'True Essence of Christmas', date: '28-Dec' },
+                { month: 'December', org: 'CMA', program: 'AASU Breakfast Meeting', date: '30-Dec-26' },
+                { month: 'December', org: 'Marian Voices', program: 'End-of-Year Get-Together', date: 'Dec / Jan' },
+                { month: 'December', org: 'Marshall', program: 'Installation & Thanksgiving / Handover', date: 'December' },
+                { month: 'December', org: 'CMA', program: 'Christmas Charity', date: 'TBA' }
+            ];
+
+            function flyerForEvent(event) {
+                const haystack = (event.program + ' ' + event.org).toLowerCase();
+                if (haystack.includes('youth mass')) return 'images/Youth Mass_August.png';
+                if (haystack.includes('holy hour') || haystack.includes('adoration')) return 'images/Holy Hour Adoration.png';
+                if (haystack.includes('bible')) return 'images/Bible Study_August.png';
+                if (haystack.includes('thursday')) return 'images/Thursday_August.png';
+                if (haystack.includes('pentecost')) return 'images/Bg4.jpg';
+                if (haystack.includes('retreat')) return 'images/Bg2.jpg';
+                return 'images/church-hero.jpg';
+            }
+
+            function uniqueOrgs() {
+                const set = new Set();
+                events.forEach(function(e) {
+                    set.add(e.org);
+                });
+                return Array.from(set).sort();
+            }
+
+            function renderMonthOptions() {
+                monthSelect.innerHTML = months.map(function(month) {
+                    return '<option value="' + month + '">' + month + '</option>';
+                }).join('');
+            }
+
+            function renderOrgOptions() {
+                const orgs = uniqueOrgs();
+                orgSelect.innerHTML = ['<option value="all">All</option>']
+                    .concat(orgs.map(function(org) {
+                        return '<option value="' + org.replace(/"/g, '&quot;') + '">' + org + '</option>';
+                    }))
+                    .join('');
+            }
+
+            function matchesFilters(event, month, org, query) {
+                if (event.month !== month) return false;
+                if (org !== 'all' && event.org !== org) return false;
+                if (!query) return true;
+                const haystack = (event.org + ' ' + event.program + ' ' + event.date).toLowerCase();
+                return haystack.includes(query);
+            }
+
+            function renderEvents() {
+                const month = monthSelect.value;
+                const org = orgSelect.value;
+                const query = searchInput.value.trim().toLowerCase();
+
+                const filtered = events.filter(function(e) {
+                    return matchesFilters(e, month, org, query);
+                });
+
+                grid.innerHTML = filtered.map(function(e) {
+                    const flyer = flyerForEvent(e);
+                    const title = e.program;
+                    const safeOrg = e.org.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    const safeTitle = title.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    const safeDate = e.date.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+                    return (
+                        '<div class="event-card">' +
+                            '<img src="' + flyer + '" alt="Event flyer">' +
+                            '<div class="event-card-body">' +
+                                '<div class="event-card-title">' + safeTitle + '</div>' +
+                                '<div class="event-card-meta">' +
+                                    '<span class="event-badge">' + safeOrg + '</span>' +
+                                    '<span class="event-badge">' + safeDate + '</span>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>'
+                    );
+                }).join('');
+
+                emptyState.hidden = filtered.length !== 0;
+            }
+
+            renderMonthOptions();
+            renderOrgOptions();
+
+            const currentMonth = months[new Date().getMonth()] || 'January';
+            monthSelect.value = currentMonth;
+            orgSelect.value = 'all';
+
+            monthSelect.addEventListener('change', renderEvents);
+            orgSelect.addEventListener('change', renderEvents);
+            searchInput.addEventListener('input', renderEvents);
+
+            renderEvents();
+        });
+    </script>
+</body>
+</html>

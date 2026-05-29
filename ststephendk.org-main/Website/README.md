@@ -1,7 +1,7 @@
-# St. Stephen Parish Website
+# St. Stephen Catholic Church Website
 
 ## Overview
-This is the official website for St. Stephen Parish in Darkuman, Accra. The website provides information about the parish, including mass schedules, ministries, parish groups, gallery, and contact information.
+This is the official website for St. Stephen Catholic Church in Darkuman, Accra. The website provides information about the church, including mass schedules, ministries, parish groups, gallery, and contact information.
 
 ## Features
 - Responsive design that works on desktop and mobile devices
@@ -36,4 +36,4 @@ To run this website locally:
 If you'd like to contribute to the website development, please contact the parish office.
 
 ## License
-All rights reserved. This website is the property of St. Stephen Parish, Darkuman.
+All rights reserved. This website is the property of St. Stephen Catholic Church, Darkuman.

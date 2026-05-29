@@ -3,145 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parish Bulletin - St. Stephen Parish, Darkuman</title>
+    <title>Parish Bulletin - St. Stephen Catholic Church, Darkuman</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Additional styles for the bulletin page */
-        .bulletin-section {
-            background-color: #fff;
-            padding: 3rem 0;
-        }
-        
-        .bulletin-section .container {
-            max-width: 900px;
-        }
-        
-        .bulletin-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .bulletin-header h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .bulletin-header .bulletin-date {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-top: 0.5rem;
-        }
-        
-        .bulletin-header .bulletin-number {
-            font-size: 1rem;
-            color: #666;
-            margin-top: 0.5rem;
-        }
-        
-        .bulletin-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        .bulletin-box {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--primary-color);
-        }
-        
-        .bulletin-box h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .bulletin-box h3 i {
-            color: var(--primary-color);
-        }
-        
-        .bulletin-list {
-            list-style: none;
-        }
-        
-        .bulletin-list li {
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .bulletin-list li:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .bulletin-list li strong {
-            color: var(--primary-color);
-        }
-        
-        .bulletin-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        
-        .bulletin-readings {
-            margin-top: 1rem;
-        }
-        
-        .bulletin-readings p {
-            margin-bottom: 0.5rem;
-        }
-        
-        .bulletin-readings strong {
-            color: var(--primary-color);
-        }
-        
-        .bulletin-reflection {
-            margin-top: 1rem;
-            font-style: italic;
-            line-height: 1.6;
-        }
-        
-        @media (max-width: 768px) {
-            .bulletin-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <div class="logo">
-                <i class="fas fa-church"></i>
-                <h1>St. Stephen Parish</h1>
-            </div>
-            <p class="tagline">Faith, Community, Service</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="mass-schedule.html">Mass Schedule</a></li>
-                <li><a href="ministries.html">Parish Groups</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="bulletin.html" class="active">Bulletin</a></li>
-            </ul>
-        </nav>
-
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-    </header>
+    <div id="site-header"></div>
 
     <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/church-hero.jpg') no-repeat center center/cover; padding: 6rem 0;">
         <div class="hero-content">
@@ -150,203 +17,168 @@
         </div>
     </section>
 
-    <section class="bulletin-section">
+    <section class="content-section">
         <div class="container">
-            <div class="bulletin-header">
-                <h2>St. Stephen Catholic Church</h2>
-                <p class="bulletin-date">6TH JULY, 2025 - FOURTEENTH SUNDAY IN ORDINARY TIME (YEAR C)</p>
-                <p class="bulletin-number">Parish Weekly Bulletin No. 12 Vol 25 | 6th – 13th July 2025</p>
+            <div class="section-intro">
+                <h2>View the Weekly Bulletin</h2>
+                <p>Open the latest parish bulletin as a PDF, and download previous bulletins from the archive.</p>
             </div>
 
-            <div class="bulletin-content">
-                <div class="bulletin-box">
-                    <h3><i class="fas fa-calendar-alt"></i> Today's Programme</h3>
-                    <p><strong>6TH JULY, 2025 FOURTEENTH SUNDAY IN ORDINARY TIME (YEAR C)</strong></p>
-                    <p>There will be One (1) Mass</p>
-                    <ul class="bulletin-list">
-                        <li>Time: 7:30 a.m.</li>
-                        <li>Bidding Prayers and offertory gifts: Christian Mothers Association (C.M.A)</li>
-                        <li>Second Offering: There will be Kofi and Ama Thanksgiving Offering</li>
-                    </ul>
-                </div>
-
-                <div class="bulletin-box">
-                    <h3><i class="fas fa-church"></i> Next Sunday</h3>
-                    <p><strong>13TH JULY, 2025 FIFTEENTH SUNDAY IN ORDINARY TIME - YEAR C</strong></p>
-                    <p>There will be Two (2) Masses</p>
-                    <ul class="bulletin-list">
-                        <li>First Mass: 7:00 a.m.</li>
-                        <li>Second Mass: 9:00 a.m.</li>
-                        <li>Bidding Prayers and offertory gifts:
-                            <ul>
-                                <li>First Mass: St. John Int.</li>
-                                <li>Second Mass: C.C.R.</li>
-                            </ul>
-                        </li>
-                        <li>Second Offering: Parish Activities</li>
-                    </ul>
-                </div>
-
-                <div class="bulletin-box">
-                    <h3><i class="fas fa-bell"></i> Funeral Announcements</h3>
-                    <ol class="bulletin-list">
-                        <li>The death is announced Mr. John Baidoo, father of Benedicta Baidoo. The One-week observation will be held on 19th July, 2025 at Kasoa Flowerpot - Yoomart</li>
-                        <li>The death is announced of Mrs. Victoria Abena Owusua Ansah. Funeral arrangements will be communicated later.</li>
-                        <li>The death is announced of Mr. David Kwabena Asiedu. Funeral arrangements will be communicated later.</li>
-                        <li>The burial service of Madam Yaa Boaduwaa, mother, of Madam Mary Appiah will be held on 2nd August, 2025 at the Methodist Church at Adansi Adumanu, Obuasi in the Ashanti Region.</li>
-                        <li>The burial Mass of Madam Lucy Dwamena, mother of Madam Theresa Opoku will be held on Saturday 20th September, 2025 at the Holy Trinity Catholic Church, Kintampo at 8:00 a.m.</li>
-                    </ol>
-                </div>
-
-                <div class="bulletin-grid">
-                    <div class="bulletin-box">
-                        <h3><i class="fas fa-clock"></i> Weekday Masses</h3>
-                        <div>
-                            <ul class="bulletin-list" style="margin: 0;">
-                                <li><strong>Morning Mass:</strong> Tuesdays, Wednesdays: 6:00am<br>Thursdays and Saturdays: 6:30am</li>
-                                <li><strong>Evening Mass:</strong> Fridays (Youth Mass): 7:00pm</li>
-                                <li><strong>Confessions:</strong> Every Saturday at 5.00pm</li>
-                                <li><strong>Infant Baptism:</strong> 1st Saturday of every month</li>
-                            </ul>
+            <div class="content-stack">
+                <div class="content-card">
+                    <h3>Current Bulletin</h3>
+                    <div class="pdf-toolbar">
+                        <div class="pdf-toolbar-left">
+                            <strong id="current-bulletin-title">No bulletin selected</strong>
                         </div>
-                        <div style="text-align: center; margin-top: 1rem;">
-                            <p style="font-weight: bold; color: var(--primary-color); margin-top: 0.5rem;">Join us for Youth Mass every Friday at 7:00pm</p>
+                        <div class="pdf-toolbar-right">
+                            <a id="current-bulletin-open" class="btn btn-sm" href="#" target="_blank" rel="noopener" aria-disabled="true">Open</a>
+                            <a id="current-bulletin-download" class="btn btn-sm" href="#" download aria-disabled="true">Download</a>
                         </div>
                     </div>
-
-                    <div class="bulletin-box">
-                        <h3><i class="fas fa-calendar-day"></i> Sunday Mass Schedule</h3>
-                        <ul class="bulletin-list">
-                            <li><strong>1st Mass – Sunday Morning:</strong><br>Reporting Time 6:30am.<br>Mass Begins: 7:00am.</li>
-                            <li><strong>2nd Mass – Sunday Morning:</strong><br>Reporting Time 8:30am.<br>Mass Begins: 9:00am.</li>
-                        </ul>
+                    <div class="pdf-viewer">
+                        <iframe id="bulletin-pdf" title="Parish Bulletin PDF Viewer" src="about:blank"></iframe>
                     </div>
                 </div>
 
-                <div class="bulletin-grid">
-                    <div class="bulletin-box">
-                        <h3><i class="fas fa-money-bill-wave"></i> Payment of Church Dues</h3>
-                        <p>Parishioners are encouraged to pay their Annual Church Dues at the Secretary's Desk.</p>
-                        <ul class="bulletin-list">
-                            <li>Children – Ghs 6.00</li>
-                            <li>Students – Ghs 12.00</li>
-                            <li>Adults – Ghs 24.00</li>
-                        </ul>
-                    </div>
-
-                    <div class="bulletin-box">
-                        <h3><i class="fas fa-broom"></i> Church Cleaning</h3>
-                        <p>The cleaning of the Church will be the responsibility of C.C.R. for next Saturday.</p>
-                    </div>
-                </div>
-
-                <div class="bulletin-box">
-                    <h3><i class="fas fa-user-tie"></i> Parish Information</h3>
-                    <ul class="bulletin-list">
-                        <li><strong>PARISH PRIEST:</strong> Rev. Fr. Robert Billy Gbettey</li>
-                        <li><strong>ASSISTANT PRIEST:</strong> Rev. Fr. Raphael Insor-Brown</li>
-                    </ul>
-                </div>
-
-                <div class="bulletin-box">
-                    <h3><i class="fas fa-book-open"></i> Today's Readings</h3>
-                    <div class="bulletin-readings">
-                        <p><strong>First Reading:</strong> Isaiah 66:10-14</p>
-                        <p><strong>Responsorial Psalm:</strong> Psalm 66:1-3. 4-5. 6-7. 16. 20 ("Cry out with joy to God, all the earth.")</p>
-                        <p><strong>Second Reading:</strong> Galatians 6:14-18</p>
-                        <p><strong>Gospel:</strong> Luke 10:1-12. 17-20</p>
-                    </div>
-                </div>
-
-                <div class="bulletin-box">
-                    <h3><i class="fas fa-lightbulb"></i> Reflection</h3>
-                    <div class="bulletin-reflection">
-                        <p>The readings for today encourage the reflection on themes of peace, prosperity and the comforting presence of God as well as sharing the Good News. They remind us that announcing the Good News of the Kingdom by words, deeds and life is not the task of only a few. Rather, it is a task for all baptized Christians.</p>
-                        <p>For centuries God's people longed for a messiah. They yearned for someone who would bring about God's reign, a time of peace and blessings. The prophets had an unshakable faith in God's reign and communicated that confidence to the people. It is this reign that Jesus preached and began.</p>
-                        <p>He commissions the seventy-two disciples to proclaim the coming of this reign. The peace of God's reign is made possible through Jesus' life, death and resurrection. It is the fulfillment of all humanity's hopes. The disciples are successful because they are agents of God's grace. That they have been chosen as instruments of that grace is the real reason for rejoicing.</p>
-                    </div>
-                </div>
-
-                <div class="bulletin-box">
-                    <h3><i class="fas fa-calendar-week"></i> Readings for the Week</h3>
-                    <div class="bulletin-readings">
-                        <p><strong>Mon. 7th July, 2025:</strong> Genesis 28:10-22 | Psalm 91:1-2. 3-4. 14-15 | Matthew 9:18-26</p>
-                        <p><strong>Tues. 8th July, 2025:</strong> Genesis 32:22-32 | Psalm 17:1. 2-3. 6-7. 8. 15 | Matthew 9:32-38</p>
-                        <p><strong>Wed. 9th July, 2025:</strong> Genesis 41:55-57; 42:5-7. 17-24 | Psalm 33:2-3. 10-11. 18-19 | Matthew 10:1-7</p>
-                        <p><strong>Thurs. 10th July, 2025:</strong> Genesis 44:18-21. 23-29; 45:1-5 | Psalm 105:16-17. 18-19. 20-21 | Matthew 10:7-15</p>
-                        <p><strong>Fri. 11th July, 2025:</strong> Genesis 46:1-7. 28-30 | Psalm 37:3-4. 18-19. 27-28. 39-40 | Matthew 10:16-23</p>
-                        <p><strong>Sat. 12th July, 2025:</strong> Genesis 49:29-33; 50:15-26 | Psalm 105:1-2. 3-4. 6-7 | Matthew 10:24-33</p>
-                        <p><strong>Sun. 13th July, 2025:</strong> Deuteronomy 30:10-14 | Psalm 69:14. 17. 30-31. 33-34. 36-37 | Colossians 1:15-20 | Luke 10:25-37</p>
-                    </div>
-                </div>
-
-                <div class="bulletin-box">
-                    <h3><i class="fas fa-hands-helping"></i> Last Week's Collection</h3>
-                    <ul class="bulletin-list">
-                        <li><strong>FIRST COLLECTION:</strong> GHC 3,015.40</li>
-                        <li><strong>SECOND COLLECTION:</strong> GHC 1,808.50</li>
-                        <li><strong>SUNDAY SCHOOL:</strong> GHC 180.60</li>
-                    </ul>
-                </div>
-
-                <div class="bulletin-box">
-                    <h3><i class="fas fa-info-circle"></i> Contact Information</h3>
-                    <ul class="bulletin-list">
-                        <li><strong>St. Stephen Catholic Church</strong></li>
-                        <li><strong>Parish MOMO Number:</strong> 055-190-1335, MOMO Merchant ID: 471333</li>
-                        <li><strong>Account Name:</strong> St. Stephen Catholic Church.</li>
-                        <li><strong>Slogan:</strong> "Lor Lor Soŋŋ; Odo Nkoaaa!!!!!!"</li>
-                        <li><strong>P. O. Box:</strong> DK 389, Darkuman - Accra</li>
-                        <li><strong>Email:</strong> ststephendk@gmail.com</li>
-                        <li><strong>Tel:</strong> 0506078423/0242017920</li>
-                    </ul>
+                <div class="content-card">
+                    <h3>Bulletin Archive</h3>
+                    <div id="bulletin-archive" class="archive-grid"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-church"></i>
-                    <h2>St. Stephen Parish</h2>
-                    <p>Darkuman, Accra, Ghana</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="mass-schedule.html">Mass Schedule</a></li>
-                        <li><a href="ministries.html">Parish Groups</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="bulletin.html">Bulletin</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> P. O. Box DK 389, Darkuman - Accra, Ghana</p>
-                    <p><i class="fas fa-phone"></i> +233 506078423 / +233 242017920</p>
-                    <p><i class="fas fa-envelope"></i> ststephendk@gmail.com</p>
-                </div>
-                <div class="footer-social">
-                    <h3>Connect With Us</h3>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 St. Stephen Parish. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewer = document.getElementById('bulletin-pdf');
+            const archiveHost = document.getElementById('bulletin-archive');
+            const currentTitle = document.getElementById('current-bulletin-title');
+            const currentOpen = document.getElementById('current-bulletin-open');
+            const currentDownload = document.getElementById('current-bulletin-download');
+
+            if (!viewer || !archiveHost || !currentTitle || !currentOpen || !currentDownload) {
+                return;
+            }
+
+            const bulletinBasePath = 'Bulletin/';
+            const embeddedBulletins = [
+                { title: 'BULLETIN 10TH MAY, 2026 (YEAR A)', date: '2026-05-10', fileName: 'BULLETIN 10TH MAY, 2026 (YEAR A).pdf' },
+                { title: 'BULLETIN  3RD MAY, 2026 (YEAR A)', date: '2026-05-03', fileName: 'BULLETIN  3RD MAY, 2026 (YEAR A).pdf' },
+                { title: 'BULLETIN  26TH APRIL, 2026 (YEAR A)', date: '2026-04-26', fileName: 'BULLETIN  26TH APRIL, 2026 (YEAR A).pdf' },
+                { title: 'BULLETIN 1ST SEPTEMBER, 2024 (YEAR B)', date: '2024-09-01', fileName: 'BULLETIN 1ST SEPTEMBER, 2024 (YEAR B).pdf' },
+                { title: 'BULLETIN 1ST SEPTEMBER^J 2024 (YEAR B)', date: '2024-09-01', fileName: 'BULLETIN 1ST SEPTEMBER^J 2024 (YEAR B).pdf' }
+            ];
+
+            function setDisabled(link, isDisabled) {
+                link.setAttribute('aria-disabled', isDisabled ? 'true' : 'false');
+                if (isDisabled) {
+                    link.classList.add('is-disabled');
+                    link.href = '#';
+                    link.removeAttribute('download');
+                } else {
+                    link.classList.remove('is-disabled');
+                }
+            }
+
+            function buildBulletinUrl(fileName) {
+                return bulletinBasePath + encodeURIComponent(fileName);
+            }
+
+            function setCurrentBulletin(entry) {
+                if (!entry) {
+                    viewer.src = 'about:blank';
+                    currentTitle.textContent = 'No bulletin selected';
+                    setDisabled(currentOpen, true);
+                    setDisabled(currentDownload, true);
+                    return;
+                }
+
+                viewer.src = entry.url;
+                currentTitle.textContent = entry.title + (entry.date ? ' — ' + entry.date : '');
+                currentOpen.href = entry.url;
+                currentOpen.setAttribute('target', '_blank');
+                currentOpen.setAttribute('rel', 'noopener');
+                setDisabled(currentOpen, false);
+                currentDownload.href = entry.url;
+                currentDownload.setAttribute('download', '');
+                setDisabled(currentDownload, false);
+            }
+
+            function renderArchive(bulletins) {
+                if (!bulletins || !bulletins.length) {
+                    archiveHost.innerHTML = '<p class="event-empty">No bulletins available yet.</p>';
+                    return;
+                }
+
+                const sorted = bulletins.slice().sort(function(a, b) {
+                    return String(b.date).localeCompare(String(a.date));
+                });
+
+                archiveHost.innerHTML = sorted.map(function(item) {
+                    const safeTitle = item.title.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    const safeDate = item.date.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    const safeUrl = item.url.replace(/"/g, '&quot;');
+                    return (
+                        '<button type="button" class="archive-card" data-url="' + safeUrl + '" data-title="' + safeTitle + '" data-date="' + safeDate + '">' +
+                            '<div class="archive-card-top">' +
+                                '<div class="archive-card-title">' + safeTitle + '</div>' +
+                                '<div class="archive-card-date">' + safeDate + '</div>' +
+                            '</div>' +
+                            '<div class="archive-card-actions">' +
+                                '<span class="event-badge">View</span>' +
+                                '<span class="event-badge">PDF</span>' +
+                            '</div>' +
+                        '</button>'
+                    );
+                }).join('');
+
+                archiveHost.querySelectorAll('.archive-card').forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        const entry = {
+                            title: btn.getAttribute('data-title') || 'Bulletin',
+                            date: btn.getAttribute('data-date') || '',
+                            url: btn.getAttribute('data-url') || ''
+                        };
+                        setCurrentBulletin(entry);
+                    });
+                });
+
+                setCurrentBulletin(sorted[0]);
+            }
+
+            function normalize(list) {
+                return (list || [])
+                    .filter(function(item) {
+                        return item && item.fileName;
+                    })
+                    .map(function(item) {
+                        return {
+                            title: item.title || item.fileName,
+                            date: item.date || '',
+                            url: buildBulletinUrl(item.fileName)
+                        };
+                    });
+            }
+
+            fetch('Bulletin/bulletins.json', { cache: 'no-store' })
+                .then(function(res) {
+                    if (!res.ok) {
+                        throw new Error('Failed to load bulletin list');
+                    }
+                    return res.json();
+                })
+                .then(function(data) {
+                    const list = Array.isArray(data) ? data : (Array.isArray(data.bulletins) ? data.bulletins : []);
+                    renderArchive(normalize(list));
+                })
+                .catch(function() {
+                    renderArchive(normalize(embeddedBulletins));
+                });
+        });
+    </script>
 </body>
 </html>

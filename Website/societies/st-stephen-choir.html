@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Stephen Choir - St. Stephen Parish, Darkuman</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles for the society page */
+        .society-section {
+            background-color: #fff;
+            padding: 3rem 0;
+        }
+        
+        .society-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .society-header h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 1rem auto 0;
+        }
+        
+        .society-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .society-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .society-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .society-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .society-details p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .society-info {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .society-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .society-info ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .society-info li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .society-info li:last-child {
+            border-bottom: none;
+        }
+        
+        .society-info li i {
+            color: var(--primary-color);
+        }
+        
+        .history-section {
+            margin-bottom: 3rem;
+        }
+        
+        .history-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .history-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .pioneers {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .pioneers h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .pioneers ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+        
+        .pioneers li {
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .pioneers li i {
+            color: var(--primary-color);
+        }
+        
+        .join-info {
+            background-color: rgba(196, 30, 58, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 3rem 0;
+            border-radius: 4px;
+        }
+        
+        .join-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .join-info h3 i {
+            color: var(--primary-color);
+        }
+        
+        .join-info .btn {
+            margin-top: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            color: var(--light-text);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .society-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-church"></i>
+                <h1>St. Stephen Parish</h1>
+            </div>
+            <p class="tagline">Faith, Community, Service</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About Us</a></li>
+                <li><a href="../mass-schedule.html">Mass Schedule</a></li>
+                <li><a href="../ministries.html">Parish Groups</a></li>
+                <li><a href="../gallery.html">Gallery</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/church-hero.jpg') no-repeat center center/cover; padding: 6rem 0;">
+        <div class="hero-content">
+            <h2>St. Stephen Choir</h2>
+            <p>Enhancing liturgical celebrations through music since 1982</p>
+        </div>
+    </section>
+
+    <section class="society-section">
+        <div class="container">
+            <div class="society-header">
+                <h2>About St. Stephen Choir</h2>
+                <p>Learn about our history, mission, and activities</p>
+            </div>
+
+            <div class="society-content">
+                <div class="society-image">
+                    <div style="background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../images/Backgroud.jpg') no-repeat center center/cover; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                        <i class="fas fa-music" style="font-size: 3rem; color: var(--primary-color);"></i>
+                    </div>
+                </div>
+                <div class="society-details">
+                    <h3>Who We Are</h3>
+                    <p>The St. Stephen Choir is the main parish choir that enhances liturgical celebrations through music. We lead the congregation in worship through sacred music, hymns, and songs that reflect our Catholic faith and traditions.</p>
+                    
+                    <div class="society-info">
+                        <h3><i class="fas fa-info-circle"></i> Choir Information</h3>
+                        <ul>
+                            <li><i class="fas fa-calendar-alt"></i> <strong>Founded:</strong> 1982</li>
+                            <li><i class="fas fa-map-marker-alt"></i> <strong>Founded at:</strong> Royal International School</li>
+                            <li><i class="fas fa-user-tie"></i> <strong>Current President:</strong> Mr. Sampson Appianing</li>
+                            <li><i class="fas fa-music"></i> <strong>Repertoire:</strong> Sacred music, hymns, and liturgical songs</li>
+                            <li><i class="fas fa-clock"></i> <strong>Practice Schedule:</strong> Weekly</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Our Mission</h3>
+                    <p>The St. Stephen Choir is dedicated to enhancing the liturgical celebrations of our parish through beautiful music that inspires prayer and worship. We strive to lead the congregation in active participation in the Mass through music that reflects our Catholic faith and traditions.</p>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h3><i class="fas fa-history"></i> Our History</h3>
+                <p>The choir was formed in 1982 at the Royal International School, where the Catholic community members were then worshipping at the premises.</p>
+                
+                <div class="pioneers">
+                    <h4><i class="fas fa-star"></i> Our Pioneers</h4>
+                    <p>Some of the pioneers who helped establish the St. Stephen Choir include:</p>
+                    <ul>
+                        <li><i class="fas fa-user"></i> The late Mr. Ndede</li>
+                        <li><i class="fas fa-user"></i> The late Mrs. Christiana Nugent</li>
+                        <li><i class="fas fa-user"></i> The late Ms. Agnes Mensah</li>
+                        <li><i class="fas fa-user"></i> The late Mr. Anthony Nuvor</li>
+                        <li><i class="fas fa-user"></i> Mr. Foster Agyemang</li>
+                    </ul>
+                </div>
+                
+                <p>Mrs. Cecilia Aikins Mensah presented the Choir with second set of robes in 1988, which helped establish the choir's visual identity during liturgical celebrations.</p>
+                
+                <p>Over the years, the choir has grown in both membership and repertoire, becoming an integral part of the parish's liturgical life. The choir continues to enhance the worship experience through sacred music that inspires prayer and reflection.</p>
+            </div>
+
+            <div class="join-info">
+                <h3><i class="fas fa-music"></i> Join St. Stephen Choir</h3>
+                <p>We welcome all parishioners who have a love for music and a desire to serve the parish through song. No prior musical experience is required - just a willingness to learn and commit to regular practice. To join or learn more about our activities, please contact the parish office or speak with any current member.</p>
+                <a href="../contact.html" class="btn">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-church"></i>
+                    <h2>St. Stephen Parish</h2>
+                    <p>Darkuman, Accra, Ghana</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../mass-schedule.html">Mass Schedule</a></li>
+                        <li><a href="../ministries.html">Parish Groups</a></li>
+                        <li><a href="../gallery.html">Gallery</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Darkuman, Accra, Ghana</p>
+                    <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+                    <p><i class="fas fa-envelope"></i> info@ststephendarkuman.org</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 St. Stephen Parish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

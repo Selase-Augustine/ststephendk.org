@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parish Groups & Ministries - St. Stephen Parish, Darkuman</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles for the ministries page */
+        .ministries-section {
+            background-color: #fff;
+            padding: 3rem 0;
+        }
+        
+        .ministries-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .ministries-header h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .ministry-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .category-btn {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('images/Backgroud.jpg') no-repeat center center/cover;
+            color: var(--text-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+        
+        .ministry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .ministry-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .ministry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ministry-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .ministry-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .ministry-card:hover .ministry-img img {
+            transform: scale(1.05);
+        }
+        
+        .ministry-content {
+            padding: 1.5rem;
+        }
+        
+        .ministry-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ministry-content h3 i {
+            color: var(--primary-color);
+        }
+        
+        .ministry-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .ministry-meta {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .join-info {
+            background-color: rgba(196, 30, 58, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 3rem 0;
+            border-radius: 4px;
+        }
+        
+        .join-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .join-info h3 i {
+            color: var(--primary-color);
+        }
+        
+        .join-info .btn {
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .ministry-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ministry-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-church"></i>
+                <h1>St. Stephen Parish</h1>
+            </div>
+            <p class="tagline">Faith, Community, Service</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="mass-schedule.html">Mass Schedule</a></li>
+                <li><a href="ministries.html" class="active">Parish Groups</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="bulletin.html">Bulletin</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/church-hero.jpg') no-repeat center center/cover; padding: 6rem 0;">
+        <div class="hero-content">
+            <h2>Parish Groups & Ministries</h2>
+            <p>Discover the many ways you can serve, worship, and get involved at St. Stephen Parish</p>
+        </div>
+    </section>
+
+    <section class="ministries-section">
+        <div class="container">
+            <div class="ministries-header">
+                <h2>Our Ministries</h2>
+                <p>St. Stephen Parish offers various ministries to help you grow in faith and serve the community</p>
+            </div>
+
+            <div class="ministry-categories">
+                <button class="category-btn active" data-category="all">All Groups</button>
+                <button class="category-btn" data-category="society">Societies</button>
+                <button class="category-btn" data-category="youth">Youth Groups</button>
+                <button class="category-btn" data-category="music">Singing Groups</button>
+                <button class="category-btn" data-category="ministry">Ministries</button>
+                <button class="category-btn" data-category="devotional">Devotional</button>
+                <button class="category-btn" data-category="charity">Charity</button>
+            </div>
+
+            <div class="ministry-grid">
+                <!-- Societies -->
+                <div class="ministry-card" data-category="society">
+                    <div class="ministry-img">
+                        <img src="images/st-theresa.jpg" alt="St. Theresa of the Child Jesus" onerror="this.src='https://via.placeholder.com/400x200?text=St.+Theresa'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-users"></i> St. Theresa of the Child Jesus</h3>
+                        <p>A society dedicated to following the spiritual path of St. Theresa, focusing on simple acts of love and devotion.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: Adults</span>
+                        </div>
+                        <a href="societies/st-theresa-society.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="society">
+                    <div class="ministry-img">
+                        <img src="images/cma.jpg" alt="Christian Mother Association" onerror="this.src='https://via.placeholder.com/400x200?text=CMA'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-female"></i> Christian Mother Association</h3>
+                        <p>The CMA brings together mothers to support each other in faith and family life, promoting Christian values in the home.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Monthly</span>
+                            <span><i class="fas fa-user"></i> Ages: Adult women</span>
+                        </div>
+                        <a href="societies/christian-mothers-association.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="society">
+                    <div class="ministry-img">
+                        <img src="images/cmc.jpg" alt="Catholic Men Confraternity" onerror="this.src='https://via.placeholder.com/400x200?text=CMC'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-male"></i> Catholic Men Confraternity</h3>
+                        <p>The CMC unites men in faith, fellowship, and service, encouraging spiritual growth and leadership within the parish and families.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Monthly</span>
+                            <span><i class="fas fa-user"></i> Ages: Adult men</span>
+                        </div>
+                        <a href="societies/catholic-mens-confraternity.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="society">
+                    <div class="ministry-img">
+                        <img src="images/ewe-society.jpg" alt="St. Michael Ewe Society" onerror="this.src='https://via.placeholder.com/400x200?text=Ewe+Society'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-users"></i> St. Michael Ewe Society</h3>
+                        <p>A cultural and spiritual group that celebrates Ewe traditions while fostering Catholic faith among Ewe-speaking parishioners.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Monthly</span>
+                            <span><i class="fas fa-user"></i> Ages: All</span>
+                        </div>
+                        <a href="societies/ewe-society.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="society">
+                    <div class="ministry-img">
+                        <img src="images/knights.jpg" alt="Knights & Ladies of St. John" onerror="this.src='https://via.placeholder.com/400x200?text=Knights+of+St.+John'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-shield-alt"></i> Knights & Ladies of St. John</h3>
+                        <p>A fraternal organization dedicated to charitable works, spiritual growth, and supporting the parish community.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Bi-weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: Adults</span>
+                        </div>
+                        <a href="societies/knights-of-st-john.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="society">
+                    <div class="ministry-img">
+                        <img src="images/akan.jpg" alt="Akan Kuo" onerror="this.src='https://via.placeholder.com/400x200?text=Akan+Kuo'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-users"></i> Akan Kuo</h3>
+                        <p>A cultural and spiritual group that celebrates Akan traditions while fostering Catholic faith among Akan-speaking parishioners.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Monthly</span>
+                            <span><i class="fas fa-user"></i> Ages: All</span>
+                        </div>
+                        <a href="societies/akan-nkabom-kuo.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="society">
+                    <div class="ministry-img">
+                        <img src="images/marshall.jpg" alt="Knights & Ladies of Marshall" onerror="this.src='https://via.placeholder.com/400x200?text=Knights+of+Marshall'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-shield-alt"></i> The Marshallan Association</h3>
+                        <p>A Catholic Friendly Society with the motto: Unity, Charity, Fraternity and Service, pledging loyalty to the Church.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Monthly</span>
+                            <span><i class="fas fa-user"></i> Ages: Adults</span>
+                        </div>
+                        <a href="societies/marshallan-association.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Youth Groups -->
+                <div class="ministry-card" data-category="youth">
+                    <div class="ministry-img">
+                        <img src="images/cda.jpg" alt="Christian Daughters Association" onerror="this.src='https://via.placeholder.com/400x200?text=CDA'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-female"></i> Christian Daughters Association</h3>
+                        <p>A group for young women focused on spiritual growth, virtue, and service in the parish community.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: 13-25</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="youth">
+                    <div class="ministry-img">
+                        <img src="images/cosra.jpg" alt="COSRA" onerror="this.src='https://via.placeholder.com/400x200?text=COSRA'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-users"></i> COSRA</h3>
+                        <p>Catholic Organization for Social and Religious Advancement provides opportunities for youth to grow in faith and engage in social outreach.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: 15-30</span>
+                        </div>
+                        <a href="societies/cosra.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="youth">
+                    <div class="ministry-img">
+                        <img src="images/cyo.jpg" alt="CYO" onerror="this.src='https://via.placeholder.com/400x200?text=CYO'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-child"></i> Catholic Youth Organization</h3>
+                        <p>CYO provides spiritual, social, and service opportunities for young people to grow in faith and leadership.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Sundays</span>
+                            <span><i class="fas fa-user"></i> Ages: 13-25</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="youth ministry">
+                    <div class="ministry-img">
+                        <img src="images/knolta.jpg" alt="KNOLTA" onerror="this.src='https://via.placeholder.com/400x200?text=KNOLTA'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-cross"></i> Knights & Ladies of the Altar</h3>
+                        <p>KNOLTA trains and coordinates altar servers who assist the priest during Mass and other liturgical celebrations.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: 10-18</span>
+                        </div>
+                        <a href="societies/knights-of-the-altar.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="youth devotional">
+                    <div class="ministry-img">
+                        <img src="images/tarcisians.jpg" alt="League of Tarcisian's" onerror="this.src='https://via.placeholder.com/400x200?text=League+of+Tarcisians'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-child"></i> League of Tarcisian's of the Sacred Heart</h3>
+                        <p>Named after St. Tarcisian, this group helps young people carry the knowledge and love of Jesus to others, especially their families.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: Children & Youth</span>
+                        </div>
+                        <a href="societies/league-of-tarcisians.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="youth">
+                    <div class="ministry-img">
+                        <img src="images/casu.jpg" alt="Catholic Students Union" onerror="this.src='https://via.placeholder.com/400x200?text=CASU'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-graduation-cap"></i> Catholic Students Union (CASU)</h3>
+                        <p>A vibrant youth group bringing Catholic students together for effective coordination of activities and holistic programmes.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: Students</span>
+                        </div>
+                        <a href="societies/catholic-students-union.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Music Groups -->
+                <div class="ministry-card" data-category="music">
+                    <div class="ministry-img">
+                        <img src="images/choir.jpg" alt="St. Stephen Choir" onerror="this.src='https://via.placeholder.com/400x200?text=St.+Stephen+Choir'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-music"></i> St. Stephen Choir</h3>
+                        <p>Our main parish choir enhances liturgical celebrations through music. All are welcome to join, regardless of musical experience.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Practice: Weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: All</span>
+                        </div>
+                        <a href="societies/st-stephen-choir.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="music youth">
+                    <div class="ministry-img">
+                        <img src="images/marian-voices.jpg" alt="Marian Voices" onerror="this.src='https://via.placeholder.com/400x200?text=Marian+Voices'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-music"></i> Marian Voices</h3>
+                        <p>A youth choir dedicated to praising God through song and enhancing our liturgical celebrations.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Practice: Weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: Youth</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="music">
+                    <div class="ministry-img">
+                        <img src="images/st-cecilia.jpg" alt="St. Cecilia Singing Band" onerror="this.src='https://via.placeholder.com/400x200?text=St.+Cecilia'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-music"></i> St. Cecilia Singing Band</h3>
+                        <p>Named after the patron saint of music, this group provides beautiful music for various parish celebrations.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Practice: Weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: All</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ministries -->
+                <div class="ministry-card" data-category="ministry">
+                    <div class="ministry-img">
+                        <img src="images/ushers.jpg" alt="Ushers" onerror="this.src='https://via.placeholder.com/400x200?text=Ushers'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-door-open"></i> Ushers</h3>
+                        <p>Ushers welcome parishioners and visitors, assist with seating, take up collections, and help maintain order during liturgical celebrations.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Serves: During Masses</span>
+                            <span><i class="fas fa-user"></i> Ages: Adults</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="ministry">
+                    <div class="ministry-img">
+                        <img src="images/lectors.jpg" alt="Lectors" onerror="this.src='https://via.placeholder.com/400x200?text=Lectors'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-book-open"></i> Lectors</h3>
+                        <p>Lectors proclaim the Word of God during Mass. Training is provided for those interested in this important ministry.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Monthly</span>
+                            <span><i class="fas fa-user"></i> Ages: 16+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Devotional Groups -->
+                <div class="ministry-card" data-category="devotional">
+                    <div class="ministry-img">
+                        <img src="images/legion-of-mary.jpg" alt="Legion of Mary" onerror="this.src='https://via.placeholder.com/400x200?text=Legion+of+Mary'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-pray"></i> Legion of Mary</h3>
+                        <p>A group devoted to Mary that focuses on prayer, evangelization, and spiritual works of mercy in the parish and community.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: All</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="devotional">
+                    <div class="ministry-img">
+                        <img src="images/sacred-heart.jpg" alt="Sacred Heart Confraternity" onerror="this.src='https://via.placeholder.com/400x200?text=Sacred+Heart'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-heart"></i> Sacred Heart Confraternity</h3>
+                        <p>Dedicated to promoting devotion to the Sacred Heart of Jesus through prayer, adoration, and acts of reparation.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Monthly</span>
+                            <span><i class="fas fa-user"></i> Ages: All</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="devotional society">
+                    <div class="ministry-img">
+                        <img src="images/st-anthony.jpg" alt="St. Anthony's Guild" onerror="this.src='https://via.placeholder.com/400x200?text=St.+Anthony\'s+Guild'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-pray"></i> St. Anthony's Guild</h3>
+                        <p>A group dedicated to following the spiritual path of St. Anthony of Padua through service, prayer, and charitable works.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: First Sunday</span>
+                            <span><i class="fas fa-user"></i> Ages: All</span>
+                        </div>
+                        <a href="societies/st-anthonys-guild.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="ministry-card" data-category="devotional">
+                    <div class="ministry-img">
+                        <img src="images/ccr.jpg" alt="Catholic Charismatic Renewal" onerror="this.src='https://via.placeholder.com/400x200?text=CCR'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-fire"></i> Catholic Charismatic Renewal</h3>
+                        <p>A spiritual movement focused on experiencing the Holy Spirit through prayer, praise, and charismatic gifts.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Weekly</span>
+                            <span><i class="fas fa-user"></i> Ages: All</span>
+                        </div>
+                        <a href="societies/charismatic-renewal.html" class="btn btn-sm">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Charity -->
+                <div class="ministry-card" data-category="charity devotional">
+                    <div class="ministry-img">
+                        <img src="images/st-vincent.jpg" alt="St. Vincent de Paul" onerror="this.src='https://via.placeholder.com/400x200?text=St.+Vincent+de+Paul'">
+                    </div>
+                    <div class="ministry-content">
+                        <h3><i class="fas fa-hands-helping"></i> St. Vincent de Paul</h3>
+                        <p>This society provides direct assistance to those in need through food, clothing, financial aid, and other support services.</p>
+                        <div class="ministry-meta">
+                            <span><i class="fas fa-clock"></i> Meets: Monthly</span>
+                            <span><i class="fas fa-user"></i> Ages: Adults</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="join-info">
+                <h3><i class="fas fa-user-plus"></i> How to Join a Parish Group</h3>
+                <p>We welcome all parishioners to participate in our parish groups and ministries. To join any of these groups or to learn more about them, please:</p>
+                <ul>
+                    <li>Speak with the group coordinator after Mass</li>
+                    <li>Contact the parish office</li>
+                    <li>Fill out the membership interest form on our contact page</li>
+                </ul>
+                <a href="contact.html" class="btn">Contact Us About Parish Groups</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-church"></i>
+                    <h2>St. Stephen Parish</h2>
+                    <p>Darkuman, Accra, Ghana</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="mass-schedule.html">Mass Schedule</a></li>
+                        <li><a href="ministries.html">Parish Groups</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Darkuman, Accra, Ghana</p>
+                    <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+                    <p><i class="fas fa-envelope"></i> info@ststephendarkuman.org</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 St. Stephen Parish. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ministry filtering
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const ministryCards = document.querySelectorAll('.ministry-card');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Show/hide cards based on category
+                    ministryCards.forEach(card => {
+                        const cardCategories = card.getAttribute('data-category').split(' ');
+                        if (category === 'all' || cardCategories.includes(category)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

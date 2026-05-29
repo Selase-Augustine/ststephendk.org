@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>St. Stephen Catholic Church - Darkuman, Accra</title>
+    <link rel="preload" as="image" href="images/Homepage Images/00.jpg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -38,12 +39,16 @@
             const heroSlideshow = document.getElementById('hero-slideshow');
             const slideshowIndicators = document.getElementById('slideshow-indicators');
             const images = [
-                'images/church-hero.jpg',
-                'images/Bg1.jpg',
-                'images/Bg2.jpg',
-                'images/Bg3.jpg',
-                'images/Bg4.jpg',
-                'images/Bg5.jpg'
+                'images/Homepage Images/00.jpg',
+                'images/Homepage Images/01.jpg',
+                'images/Homepage Images/02.jpg',
+                'images/Homepage Images/03.jpg',
+                'images/Homepage Images/04.jpg',
+                'images/Homepage Images/05.jpg',
+                'images/Homepage Images/06.jpg',
+                'images/Homepage Images/07.jpg',
+                'images/Homepage Images/08.jpg',
+                'images/Homepage Images/09.jpg'
             ];
             let currentImageIndex = 0;
             
@@ -126,26 +131,26 @@
     </section>
 
     <!-- Image Gallery Section with Horizontal Scroll -->
-    <section class="image-gallery-section">
+    <section class="image-gallery-section cv-auto">
         <div class="container">
             <h2>Parish Events</h2>
             <div class="image-gallery-container">
                 <button class="gallery-nav prev"><i class="fas fa-chevron-left"></i></button>
                 <div class="image-gallery">
                     <div class="gallery-item">
-                        <img src="images/Holy Hour Adoration.png" alt="Holy Hour Adoration">
+                        <img src="images/Holy Hour Adoration.png" alt="Holy Hour Adoration" loading="lazy" decoding="async">
                         <div class="image-caption">Holy Hour Adoration</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/Bible Study_August.png" alt="Bible Study August">
+                        <img src="images/Bible Study_August.png" alt="Bible Study August" loading="lazy" decoding="async">
                         <div class="image-caption">Bible Study</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/Youth Mass_August.png" alt="Youth Mass August">
+                        <img src="images/Youth Mass_August.png" alt="Youth Mass August" loading="lazy" decoding="async">
                         <div class="image-caption">Youth Mass</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/Thursday_August.png" alt="Thursday August">
+                        <img src="images/Thursday_August.png" alt="Thursday August" loading="lazy" decoding="async">
                         <div class="image-caption">First Thursday of the Month</div>
                     </div>
                 </div>
@@ -154,45 +159,84 @@
         </div>
     </section>
 
-    <section class="announcements">
+    <section class="announcements cv-auto">
         <div class="container">
             <h2>Parish Announcements</h2>
-            <div class="announcement-cards">
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
-                    <h3>Today's Programme</h3>
-                    <p>6TH JULY, 2025 FOURTEENTH SUNDAY IN ORDINARY TIME (YEAR C)</p>
-                    <p>There will be One (1) Mass at 7:30 a.m.</p>
-                    <p>Bidding Prayers and offertory gifts: Christian Mothers Association (C.M.A)</p>
-                    <p>Second Offering: There will be Kofi and Ama Thanksgiving Offering</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><img src="images/Logos/Church's Logo.png" alt="St. Stephen Catholic Church logo" class="church-logo-icon"></div>
-                    <h3>Next Sunday</h3>
-                    <p>13TH JULY, 2025 FIFTEENTH SUNDAY IN ORDINARY TIME - YEAR C</p>
-                    <p>There will be Two (2) Masses:</p>
-                    <p>First Mass: 7:00 a.m. - Bidding Prayers and offertory gifts: St. John Int.</p>
-                    <p>Second Mass: 9:15 a.m. - Bidding Prayers and offertory gifts: C.C.R.</p>
-                    <p>Second Offering: Parish Activities</p>
-                </div>
-                </div>
+            <div class="announcement-grid">
+                <article class="announcement-panel">
+                    <div class="announcement-panel-head">
+                        <div class="announcement-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div>
+                            <h3>Today's Programme</h3>
+                            <p class="announcement-meta">6TH JULY, 2025 — FOURTEENTH SUNDAY IN ORDINARY TIME (YEAR C)</p>
+                        </div>
+                    </div>
+                    <ul class="announcement-list">
+                        <li><strong>Mass:</strong> One (1) Mass at 7:30 a.m.</li>
+                        <li><strong>Bidding Prayers &amp; Offertory Gifts:</strong> Christian Mothers Association (C.M.A)</li>
+                        <li><strong>Second Offering:</strong> Kofi and Ama Thanksgiving Offering</li>
+                    </ul>
+                </article>
+
+                <article class="announcement-panel">
+                    <div class="announcement-panel-head">
+                        <div class="announcement-icon">
+                            <img src="images/Logos/Church's Logo.png" alt="St. Stephen Catholic Church logo" class="church-logo-icon" loading="lazy" decoding="async">
+                        </div>
+                        <div>
+                            <h3>Next Sunday</h3>
+                            <p class="announcement-meta">13TH JULY, 2025 — FIFTEENTH SUNDAY IN ORDINARY TIME (YEAR C)</p>
+                        </div>
+                    </div>
+                    <ul class="announcement-list">
+                        <li><strong>Masses:</strong> Two (2) Masses</li>
+                        <li><strong>First Mass:</strong> 7:00 a.m. — Bidding Prayers &amp; Offertory: St. John Int.</li>
+                        <li><strong>Second Mass:</strong> 9:15 a.m. — Bidding Prayers &amp; Offertory: C.C.R.</li>
+                        <li><strong>Second Offering:</strong> Parish Activities</li>
+                    </ul>
+                </article>
             </div>
             
-            <div class="text-center" style="margin: 2rem auto; max-width: 600px; text-align: center;">
-                <a href="bulletin.html" style="display: block; text-decoration: none; color: inherit;">
-                    <div style="background-color: #f9f9f9; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
-                        <img src="images/Logos/Church's Logo.png" alt="St. Stephen Catholic Church logo" class="church-logo-icon feature-logo">
-                        <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">View Full Parish Bulletin</h3>
-                        <p>Click here to access the complete weekly parish bulletin with all announcements, readings, and parish information.</p>
+            <div class="announcement-cta">
+                <a href="bulletin.html" class="cta-card">
+                    <img src="images/Logos/Church's Logo.png" alt="St. Stephen Catholic Church logo" class="church-logo-icon feature-logo" loading="lazy" decoding="async">
+                    <div>
+                        <h3>View Full Weekly Bulletin</h3>
+                        <p>Open the PDF bulletin and download previous bulletins.</p>
                     </div>
                 </a>
             </div>
-            
-
         </div>
     </section>
 
-    <section class="about-preview">
+    <section class="content-section cv-auto">
+        <div class="container">
+            <div class="section-intro">
+                <h2>News &amp; Daily Readings</h2>
+                <p>Stay connected with news from Rome and today’s readings.</p>
+            </div>
+
+            <div class="embed-grid">
+                <div class="content-card embed-card">
+                    <h3>News from Rome</h3>
+                    <div class="embed-frame">
+                        <iframe src="https://www.vaticannews.va/en.html" title="Vatican News" loading="lazy" referrerpolicy="no-referrer"></iframe>
+                    </div>
+                    <p class="embed-note">If the embed does not load, open: <a href="https://www.vaticannews.va/en.html" target="_blank" rel="noopener">Vatican News</a></p>
+                </div>
+
+                <div class="content-card embed-card">
+                    <h3>Daily Readings</h3>
+                    <div class="embed-frame">
+                        <iframe src="https://universalis.com/readings.htm" title="Daily Readings" loading="lazy" referrerpolicy="no-referrer"></iframe>
+                    </div>
+                    <p class="embed-note">If the embed does not load, open: <a href="https://universalis.com/readings.htm" target="_blank" rel="noopener">Universalis Readings</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-preview cv-auto">
         <div class="container">
             <div class="about-content">
                 <h2>Our Parish</h2>
@@ -201,12 +245,12 @@
                 <a href="about.html" class="btn">Read More</a>
             </div>
             <div class="about-image">
-                <img src="images/church-hero.jpg" alt="St. Stephen Catholic Church Building">
+                <img src="images/church-hero.jpg" alt="St. Stephen Catholic Church Building" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
 
-    <section class="mass-times">
+    <section class="mass-times cv-auto">
         <div class="container">
             <h2>Mass Schedule</h2>
             <div class="schedule-grid">
@@ -217,7 +261,9 @@
                 </div>
                 <div class="schedule-item">
                     <h3>Weekdays</h3>
-                    <p>6:30 AM - Morning Mass (Mon-Fri)</p>
+                    <p>Mon: 7:00 PM - Evening Mass</p>
+                    <p>Tue–Thu: 6:00 AM - Morning Mass</p>
+                    <p>Fri: 7:00 PM - Youth Mass</p>
                 </div>
                 <div class="schedule-item">
                     <h3>Saturday</h3>
